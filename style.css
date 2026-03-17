@@ -623,9 +623,9 @@ a {
     opacity: 1;
 }
 
-.bento-card > * {
+.bento-card > :not(.bento-bg-image):not(.bento-bg-overlay):not(.bento-graphic):not(.bento-arrow) {
     position: relative;
-    z-index: 2; /* Keep content above the radial gradient */
+    z-index: 3; /* Keep content above the radial gradient and overlays */
 }
 
 /* Background Image and Overlay */
@@ -637,13 +637,15 @@ a {
     object-fit: cover;
     z-index: 0;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
 }
 
 .bento-bg-overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(to top, rgba(10, 11, 16, 0.95) 0%, rgba(10, 11, 16, 0.5) 50%, rgba(10, 11, 16, 0.3) 100%);
+    background: linear-gradient(to top, rgba(10, 11, 16, 0.98) 0%, rgba(10, 11, 16, 0.5) 50%, rgba(10, 11, 16, 0.1) 100%);
     transition: opacity 0.5s ease;
 }
 
@@ -668,6 +670,8 @@ a {
     opacity: 0.85; /* Slight fade to match UI */
     border-radius: 8px; /* Smooth corners if it's a raw image */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Pop out effect */
+    -webkit-mask-image: none;
+    mask-image: none;
 }
 
 .compliance-card:hover .bento-bg-image {
@@ -675,11 +679,7 @@ a {
     opacity: 1;
 }
 
-/* Ensure ALL bento card content wraps securely above images/overlays */
-.bento-card > * {
-    position: relative;
-    z-index: 3; 
-}
+/* Special formatting for Compliance Card image so it's not hidden by text */
 
 .bento-icon {
     font-size: 2.5rem;
