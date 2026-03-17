@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bara Electricals | Premium Certified A1 Services</title>
+    <meta name="description"
+        content="Ultra-modern electrical service providers built on precision, safety, and reliability.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-mode">
+    <!-- Ambient glowing backgrounds for Glassmorphism -->
+    <div class="ambient-bg">
+        <div class="glow glow-blue"></div>
+        <div class="glow glow-yellow"></div>
+        <div class="glow glow-blue-secondary"></div>
+        <div class="glow-noise"></div>
+    </div>
+
+    <!-- Floating Pill Navbar -->
+    <header class="navbar">
+        <div class="nav-container glass-panel">
+            <div class="logo">
+                <img src="logo1.png" alt="Bara Electricals Logo" class="brand-logo">
+            </div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#testimonials">Testimonials</a>
+            </nav>
+            <div class="nav-action">
+                <a href="#contact" class="magic-shimmer-btn">
+                    <div class="shimmer-overlay"></div>
+                    <div class="btn-content">
+                        <span class="btn-text">Get a Quote</span>
+                        <span class="btn-icon">↗</span>
+                    </div>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section-padding">
+            <div class="container hero-content">
+                <div class="hero-text glass-card-translucent">
+                    <div class="badge glass-badge">Established Since 2018</div>
+                    <h1>POWERING YOUR<br><span class="aura-text">RESIDENCE</span> AND<br>BUSINESSES</h1>
+                    <p>Expert electrical services built on precision, safety, and reliability — trusted by homeowners
+                        and enterprises across the nation.</p>
+                    <div class="hero-actions mt-4">
+                        <a href="#services" class="magic-shimmer-btn btn-lg">
+                            <div class="shimmer-overlay"></div>
+                            <div class="btn-content">
+                                <span class="btn-text">See Services</span>
+                                <span class="btn-icon">↗</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-video-container">
+                    <video id="scroll-video" autoplay playsinline muted preload="auto">
+                        <source src="Bara%20Elec%20Video.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                    <div class="video-overlay"></div>
+                </div>
+
+                <div class="hero-graphics">
+                    <!-- Angled Shape Background mimicking the referenced image -->
+                    <div class="abstract-shape">
+                        <div class="shape-inner">
+                            <img src="Nick.png" alt="Nick" class="hero-portrait">
+                        </div>
+                        <div class="shape-outline"></div>
+                    </div>
+
+                    <!-- Spinning Lets Get Started Badge -->
+                    <div class="spinning-badge">
+                        <svg viewBox="0 0 100 100" width="140" height="140">
+                            <defs>
+                                <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            </defs>
+                            <circle cx="50" cy="50" r="45" fill="var(--color-primary)" />
+                            <text font-size="11" font-weight="800" fill="var(--bg-dark)" letter-spacing="2">
+                                <textPath href="#circlePath" startOffset="0%">
+                                    LET'S GET STARTED •
+                                </textPath>
+                            </text>
+                            <text x="50" y="60" font-size="30" text-anchor="middle" fill="var(--color-accent)">⚡</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services py-20 relative">
+            <div class="hero-video-container services-video-container">
+                <video id="services-scroll-video" autoplay playsinline muted preload="auto">
+                        <source src="video2.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                </video>
+                <div class="video-overlay services-overlay"></div>
+            </div>
+            
+            <div class="container relative z-10">
+                <div class="section-header text-center mb-16 fade-up">
+                    <h2>Our <span class="aura-text">Expertise</span></h2>
+                    <p>Comprehensive, high-end electrical services delivered by certified professionals.</p>
+                </div>
+                <div class="bento-grid">
+                    <!-- 1. EV Chargers -->
+                    <div class="bento-card bento-cell-large fade-up">
+                        <img src="Images/EV%20Chargers.jpg" alt="EV Chargers" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">⚡</div>
+                        <div>
+                            <div class="bento-icon">🔌</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Effortless Morning Departures</h3>
+                            <p>Wake up to a full tank every day with high-speed, safe EV charging installed seamlessly at your home.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 2. Switchboards -->
+                    <div class="bento-card bento-cell-standard fade-up" style="transition-delay: 100ms">
+                        <img src="Images/Switchboard.jpeg" alt="Switchboards" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">🛡️</div>
+                        <div>
+                            <div class="bento-icon">🛡️</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Unwavering Power Safety</h3>
+                            <p>Protect your family and property with modern, robust electrical heartbeats.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 3. Renovations -->
+                    <div class="bento-card bento-cell-standard fade-up" style="transition-delay: 200ms">
+                        <img src="Images/Renovations.png" alt="Renovations" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">🏗️</div>
+                        <div>
+                            <div class="bento-icon">🏗️</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Your Dream Space, Realized</h3>
+                            <p>Flawless electrical integration that brings your architectural vision to life.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 4. Smart Home -->
+                    <div class="bento-card bento-cell-standard fade-up">
+                        <img src="Images/Smart%20Home.png" alt="Smart Home" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">📱</div>
+                        <div>
+                            <div class="bento-icon">📱</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Seamless Intuitive Control</h3>
+                            <p>Command your environment with a single touch, automating comfort and energy efficiency.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 5. CCTV -->
+                    <div class="bento-card bento-cell-standard fade-up" style="transition-delay: 100ms">
+                        <img src="Images/CCTV.png" alt="CCTV" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">👁️</div>
+                        <div>
+                            <div class="bento-icon">👁️</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>24/7 Unblinking Peace of Mind</h3>
+                            <p>Crystal-clear surveillance to keep what matters most secure and visible.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 6. TV Installations -->
+                    <div class="bento-card bento-cell-standard fade-up" style="transition-delay: 200ms">
+                        <img src="Images/TV%20installations.png" alt="TV Installations" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">📺</div>
+                        <div>
+                            <div class="bento-icon">📺</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Cinematic Viewing Perfection</h3>
+                            <p>Clean, zero-wire mounting solutions for the ultimate entertainment experience.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 7. Lighting Upgrades -->
+                    <div class="bento-card bento-cell-wide fade-up">
+                        <img src="Images/Lightning%20Upgrades.png" alt="Lighting Upgrades" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">✨</div>
+                        <div>
+                            <div class="bento-icon">💡</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Atmosphere on Demand</h3>
+                            <p>Transform the mood of any room with intelligent, energy-saving, and flawlessly designed illumination.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+
+                    <!-- 8. Compliance -->
+                    <div class="bento-card bento-cell-standard fade-up compliance-card" style="transition-delay: 100ms">
+                        <img src="Images/Compliance.png?v=2" alt="Compliance" class="bento-bg-image">
+                        <div class="bento-bg-overlay"></div>
+                        <div class="bento-graphic">✅</div>
+                        <div>
+                            <div class="bento-icon">✅</div>
+                        </div>
+                        <div class="bento-content">
+                            <h3>Absolute Legal Confidence</h3>
+                            <p>Rigorous testing and certification so you never have to worry about regulations.</p>
+                        </div>
+                        <div class="bento-arrow">↗</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust / Testimonials Section -->
+        <section id="testimonials" class="reviews section-padding relative-z">
+            <div class="container">
+                <div class="section-header glass-header">
+                    <h2>Trusted by the Community</h2>
+                    <p>Here's what our amazing clients have to say about our premium service.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="glass-card testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"For seven years, Nick has been the silent engine behind our home’s most critical systems. From complex installs to urgent repairs, his professionalism isn't just a service—it’s a standard of excellence I’ve come to rely on completely."</p>
+                        <div class="reviewer">
+                            <div class="avatar bg-accent">GS</div>
+                            <div class="reviewer-info">
+                                <h4>Guri Singh</h4>
+                                <span>Homeowner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card testimonial-card glow-border">
+                        <div class="stars text-primary">★★★★★</div>
+                        <p class="review-text">"We rely on Bara for all our commercial properties. Best in the business,
+                            and they always fix issues proactively."</p>
+                        <div class="reviewer">
+                            <div class="avatar bg-primary text-dark">MT</div>
+                            <div class="reviewer-info">
+                                <h4>Mark Thompson</h4>
+                                <span>Property Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"A1 service indeed! They wired our entire new build perfectly and
+                            communicated brilliantly throughout the whole project."</p>
+                        <div class="reviewer">
+                            <div class="avatar bg-accent">EW</div>
+                            <div class="reviewer-info">
+                                <h4>Emma Williams</h4>
+                                <span>New Build Client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Lead Capture Section -->
+        <section id="contact" class="contact section-padding relative-z">
+            <div class="container">
+                <div class="glass-card contact-wrapper p-0">
+                    <div class="contact-info glass-panel-dark">
+                        <h2>Ready for a Quote?</h2>
+                        <p class="mb-4">Get in touch today for a free, no-obligation quote. Fill out the form, and we'll
+                            get back to you in a flash.</p>
+
+                        <div class="info-items mt-4">
+                            <div class="info-item">
+                                <span class="icon-glass">📞</span>
+                                <div>
+                                    <h4>Call Us</h4>
+                                    <p>+61 403 669 041</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon-glass">✉️</span>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <p>Nick@baraelecservicing.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon-glass">🕒</span>
+                                <div>
+                                    <h4>Operating Hours</h4>
+                                    <p>Mon - Fri: 7:00 AM - 5:00 PM</p>
+                                    <p class="text-primary text-sm mt-1">24/7 Emergency Service Available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="lead-form" class="glass-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+61 4xx xxx xxx">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Required</label>
+                                <div class="select-wrapper">
+                                    <select id="service" name="service" required>
+                                        <option value="" disabled selected>Select a service...</option>
+                                        <option value="residential">Residential</option>
+                                        <option value="commercial">Commercial</option>
+                                        <option value="new-build">New Build</option>
+                                        <option value="emergency">Emergency / Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required
+                                    placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="magic-shimmer-btn btn-lg w-full p-0">
+                                <div class="shimmer-overlay"></div>
+                                <div class="btn-content w-full justify-center">
+                                    <span class="btn-text">Request Quote</span>
+                                    <span class="btn-icon">↗</span>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo mb-2">
+                        <img src="logo1.png" alt="Bara Electricals Logo" class="brand-logo footer-logo">
+                    </div>
+                    <p class="text-muted max-w-sm">Powering your world with seamless reliability. Where expert craftsmanship meets total peace of mind.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="text-white mb-2">Company</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 class="text-white mb-2">Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4 class="text-white mb-2">Business Info</h4>
+                    <p class="text-muted">ABN: 55 630 644 585</p>
+                    <p class="text-muted">Registered Electrical Contractor (REC) 29064</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center text-muted">
+                <p>&copy; <span id="year"></span> BARA ELECTRICAL SERVICING PTY LTD. All rights reserved.</p>
+                <p class="mt-2 text-sm">Website designed and developed by <a href="https://www.agenorit.com.au"
+                        target="_blank" rel="noopener noreferrer" class="text-primary hover-glow">Agenor Services Pty
+                        Ltd</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
