@@ -15,7 +15,12 @@
     
     --font-main: 'Outfit', sans-serif;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --page-bg: var(--bg-dark);
+    --panel-dark: rgba(10, 11, 16, 0.6);
+    --btn-dark: rgba(10, 11, 16, 0.95);
 }
+
 
 * {
     margin: 0;
@@ -25,13 +30,13 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-dark);
+    background-color: var(--page-bg);
 }
 
 body {
     font-family: var(--font-main);
     color: var(--text-main);
-    background-color: var(--bg-dark);
+    background-color: var(--page-bg);
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
@@ -180,7 +185,7 @@ a {
 }
 
 .glass-panel-dark {
-    background: rgba(10, 11, 16, 0.6);
+    background: var(--panel-dark);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-right: 1px solid var(--glass-border);
@@ -437,8 +442,8 @@ a {
     backdrop-filter: blur(10px);
 }
 
-/* Video Background */
-.hero-video-container, .services-video-container {
+/* Static Hero Background Image */
+.hero-bg-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -446,22 +451,12 @@ a {
     height: 100%;
     z-index: 0;
     overflow: hidden;
-    opacity: 0.15; /* Starting very dark to mimic "lights out" */
-    transition: opacity 0.1s ease-out; /* Smooth JS scrubbing transition */
     pointer-events: none;
-}
-
-/* Services video should fully cover the section bounds if smaller than 100vh */
-.services-video-container {
-    height: 100%;
-    width: 100%;
-}
-
-#scroll-video, #services-scroll-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    mix-blend-mode: screen; 
+    background-image: url('Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Subtle background opacity */
 }
 
 .video-overlay, .services-overlay {
@@ -469,10 +464,10 @@ a {
     inset: 0;
     background: linear-gradient(
         to bottom,
-        var(--bg-dark) 0%,
+        var(--page-bg) 0%,
         transparent 20%,
         transparent 80%,
-        var(--bg-dark) 100%
+        var(--page-bg) 100%
     );
 }
 
@@ -480,10 +475,10 @@ a {
     /* Slightly harsher fade so cards remain perfectly legible */
     background: linear-gradient(
         to bottom,
-        var(--bg-dark) 5%,
-        rgba(10, 11, 16, 0.5) 20%,
-        rgba(10, 11, 16, 0.5) 80%,
-        var(--bg-dark) 95%
+        var(--page-bg) 5%,
+        var(--panel-dark) 20%,
+        var(--panel-dark) 80%,
+        var(--page-bg) 95%
     );
 }
 
@@ -502,6 +497,8 @@ a {
     width: 80%;
     height: 100%;
     right: 0;
+    transform: scale(0.85);
+    transform-origin: center right;
 }
 
 .shape-inner {
@@ -556,19 +553,6 @@ a {
     z-index: -1;
 }
 
-.spinning-badge {
-    position: absolute;
-    bottom: 5%;
-    left: 10%;
-    z-index: 20;
-    animation: rotate 20s linear infinite;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
 
 /* Services */
 .glass-header {
@@ -678,9 +662,6 @@ a {
     transform: scale(1.15) rotate(2deg) translateY(-5px);
     opacity: 1;
 }
-
-/* Special formatting for Compliance Card image so it's not hidden by text */
-
 .bento-icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -1010,13 +991,20 @@ a {
     }
     
     .abstract-shape {
-        width: 100%;
+        position: relative;
+        width: 440px;
+        height: 600px;
         right: auto;
         opacity: 0.8;
+        transform: scale(0.65);
+        transform-origin: center;
     }
-    
-    .spinning-badge { left: 50%; transform: translateX(-50%); bottom: -20px; }
-    
+
+    .hero-graphics {
+        height: 450px;
+        overflow: hidden;
+    }
+
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
@@ -1037,6 +1025,9 @@ a {
     .footer-top { grid-template-columns: 1fr; gap: 2rem; }
     
     .contact-info, .contact-form-container { padding: 2rem; }
+    
+    .abstract-shape { transform: scale(0.45); }
+    .hero-graphics { height: 300px; }
 }
 
 /* =========================================
@@ -1108,7 +1099,7 @@ a {
     justify-content: center;
     gap: 0.75rem;
     padding: 0.8rem 2rem;
-    background: rgba(10, 11, 16, 0.95); /* Deep dark background matching theme */
+    background: var(--btn-dark); /* Background matching theme */
     border-radius: 9999px;
     color: var(--text-main);
     font-weight: 600;
