@@ -63,51 +63,114 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form Submission (Prevent default & show a simple alert for demo)
+    // Form Submission with Web3Forms & GA4 Lead Tracking
     const leadForm = document.getElementById('lead-form');
     if (leadForm) {
-        leadForm.addEventListener('submit', (e) => {
+        leadForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = leadForm.querySelector('button[type="submit"]');
-            const btnText = btn.querySelector('.btn-text');
-            const originalText = btnText ? btnText.textContent : btn.textContent;
-            
-            // Simulate sending
-            if (btnText) btnText.textContent = 'Sending...';
-            else btn.textContent = 'Sending...';
-            
-            btn.style.opacity = '0.8';
-            btn.disabled = true;
+            const btnText = btn ? btn.querySelector('.btn-text') : null;
+            const originalText = btnText ? btnText.textContent : (btn ? btn.textContent : 'Request Quote');
+            const fallbackEl = document.getElementById('form-fallback');
+            const successEl = document.getElementById('form-success');
 
-            setTimeout(() => {
-                if (btnText) {
-                    btnText.textContent = 'Quote Requested!';
-                    btnText.style.backgroundColor = '#10b981'; // Success green
-                } else {
-                    btn.textContent = 'Quote Requested! ⚡';
-                    btn.style.backgroundColor = '#10b981'; // Success green
-                    btn.style.color = '#ffffff';
+            if (fallbackEl) fallbackEl.hidden = true;
+            if (successEl) successEl.hidden = true;
+
+            const setLabel = (text) => {
+                if (btnText) btnText.textContent = text;
+                else if (btn) btn.textContent = text;
+            };
+
+            setLabel('Sending…');
+            if (btn) {
+                btn.disabled = true;
+                btn.style.opacity = '0.8';
+            }
+
+            try {
+                // Check honeypot
+                if (leadForm.botcheck && leadForm.botcheck.checked) {
+                    console.warn('Bot submission blocked');
+                    return;
                 }
-                
-                // Reset form
+
+                const accessKey = 'TODO(nick): WEB3FORMS_ACCESS_KEY';
+
+                // If access key hasn't been configured by Nick yet, surface graceful fallback
+                if (accessKey.startsWith('TODO')) {
+                    throw new Error('Web3Forms access key not yet configured.');
+                }
+
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify({
+                        access_key: accessKey,
+                        subject: 'New Quote Request — baraelec.com.au',
+                        from_name: 'Bara Electrical Website',
+                        name: leadForm.name ? leadForm.name.value : '',
+                        phone: leadForm.phone ? leadForm.phone.value : '',
+                        service: leadForm.service ? leadForm.service.value : '',
+                        message: leadForm.message ? leadForm.message.value : '',
+                        botcheck: leadForm.botcheck ? leadForm.botcheck.value : ''
+                    })
+                });
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                if (!data.success) throw new Error(data.message || 'Submission failed');
+
+                setLabel('Request Sent ✓');
                 leadForm.reset();
-                
-                // Revert button after 3 seconds
+                if (successEl) successEl.hidden = false;
+
+                // Fire GA4 conversion event
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'generate_lead', {
+                        event_category: 'contact',
+                        event_label: 'quote_form',
+                        method: 'quote_form'
+                    });
+                }
+            } catch (err) {
+                console.error('Quote submission error:', err);
+                setLabel('Could not send — call us');
+                if (fallbackEl) fallbackEl.hidden = false;
+            } finally {
                 setTimeout(() => {
-                    if (btnText) {
-                        btnText.textContent = originalText;
-                        btnText.style.backgroundColor = '';
-                    } else {
-                        btn.textContent = originalText;
-                        btn.style.backgroundColor = '';
-                        btn.style.color = '';
+                    setLabel(originalText);
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
                     }
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                }, 3000);
-            }, 1000);
+                }, 4500);
+            }
         });
     }
+
+    // GA4 Tracking for Call and Email Clicks
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'click_to_call', {
+                    event_category: 'contact',
+                    event_label: link.getAttribute('href')
+                });
+            }
+        });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'click_to_email', {
+                    event_category: 'contact',
+                    event_label: link.getAttribute('href')
+                });
+            }
+        });
+    });
 
     // Scroll Animation (IntersectionObserver API for fading in elements on scroll)
     const observerOptions = {
