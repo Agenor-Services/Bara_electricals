@@ -1,10 +1,10 @@
 ---
 title: "Electrician Sydenham VIC 3037 | Switchboards & Emergency Repairs"
 h1: "Licensed Electrician in Sydenham, VIC 3037"
-metaDescription: "Prompt licensed electrician in Sydenham VIC 3037. Switchboard upgrades, TV wall mounting, fault finding & 24/7 emergency callouts. Watergardens area. REC 29064."
+metaDescription: "Prompt licensed electrician in Sydenham VIC 3037. Switchboard upgrades, TV wall mounting, fault finding & urgent electrical callouts (7am–6pm). Watergardens area. REC 29064."
 suburb: "Sydenham"
 postcode: "3037"
-answerFirst: "Bara Electrical Servicing provides residential and commercial electrical contracting across Sydenham. Conveniently located near Watergardens, licensed master electrician Nick (REC 29064) offers prompt 24/7 emergency fault finding, switchboard upgrades, and TV wall mounting with concealed cabling."
+answerFirst: "Bara Electrical Servicing provides residential and commercial electrical contracting across Sydenham. Conveniently located near Watergardens, licensed master electrician Nick (REC 29064) offers prompt same-day emergency fault finding (7am–6pm Mon–Sat), switchboard upgrades, and TV wall mounting with concealed cabling."
 housingEra: "1980s–2000s established family suburbs surrounding Watergardens"
 lastReviewed: "7 September 2026"
 typicalIssues:

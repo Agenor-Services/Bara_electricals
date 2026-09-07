@@ -1,10 +1,10 @@
 ---
 title: "Electrician Sunshine VIC 3020 | House Rewiring & Switchboards"
 h1: "Licensed Electrician in Sunshine, VIC 3020"
-metaDescription: "Experienced licensed electrician in Sunshine VIC 3020. House rewiring, ceramic fuse replacements, commercial fitouts & 24/7 emergency repairs. REC 29064."
+metaDescription: "Experienced licensed electrician in Sunshine VIC 3020. House rewiring, ceramic fuse replacements, commercial fitouts & urgent same-day repairs (7am–6pm). REC 29064."
 suburb: "Sunshine"
 postcode: "3020"
-answerFirst: "Bara Electrical Servicing delivers licensed electrical contracting across Sunshine and Sunshine North. We specialize in upgrading older post-war homes with full rewiring, ceramic fuse switchboard replacements, rental safety checks, and 24/7 emergency fault diagnostics."
+answerFirst: "Bara Electrical Servicing delivers licensed electrical contracting across Sunshine and Sunshine North. We specialize in upgrading older post-war homes with full rewiring, ceramic fuse switchboard replacements, rental safety checks, and same-day urgent fault diagnostics (7am–6pm Mon–Sat)."
 housingEra: "1940s–1970s post-war weatherboard and brick homes alongside modern infill developments"
 lastReviewed: "7 September 2026"
 typicalIssues:

@@ -1,17 +1,17 @@
 ---
-title: "Electrician Werribee VIC 3030 | 24/7 Emergency & Switchboards"
+title: "Electrician Werribee VIC 3030 | Urgent Repairs & Faults & Switchboards"
 h1: "Licensed Electrician in Werribee, VIC 3030"
 metaDescription: "Licensed electrical contractors in Werribee VIC 3030. Switchboard upgrades, emergency fault finding, rewiring & EV chargers. 5.0 star reviews. REC 29064."
 suburb: "Werribee"
 postcode: "3030"
-answerFirst: "Bara Electrical Servicing provides licensed electrical contracting across Werribee and Hoppers Crossing. Master electrician Nick (REC 29064) delivers rapid 24/7 emergency fault restoration, ceramic fuse switchboard upgrades, house rewiring, and Level 2 EV charging stations."
+answerFirst: "Bara Electrical Servicing provides licensed electrical contracting across Werribee and Hoppers Crossing. Master electrician Nick (REC 29064) delivers rapid same-day fault restoration (7am–6pm Mon–Sat), ceramic fuse switchboard upgrades, house rewiring, and Level 2 EV charging stations."
 housingEra: "Established 1960s–1990s residential streets and newer Harpley estates"
 lastReviewed: "7 September 2026"
 typicalIssues:
   - "Replacing obsolete fuse boards with modern RCBO safety switches."
   - "Renovation wiring for kitchen, bathroom, and living room extensions."
   - "Rental property mandatory biennial electrical safety audits."
-  - "24/7 emergency response for sudden tripping circuits and power outages."
+  - "rapid same-day response (7am–6pm) for sudden tripping circuits and power outages."
 faqs:
   - question: "How quickly can you respond to an emergency in Werribee?"
     answer: "Our dispatch team typically arrives in Werribee within 30 to 45 minutes for urgent electrical hazards and total power failure."

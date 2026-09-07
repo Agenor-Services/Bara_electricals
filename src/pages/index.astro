@@ -2,7 +2,7 @@
 import business from '../data/business.json';
 
 const title = "Electrician Melbourne West | EV Chargers, Switchboards & Safety | Bara Electrical";
-const description = `Licensed electricians (REC ${business.recNumber}) serving Melbourne's west since ${business.foundingYear}. EV charger installation, switchboard upgrades, smart home, CCTV and 24/7 emergency call-outs. ${business.rating.ratingValue} from ${business.rating.reviewCount} Google reviews.`;
+const description = `Licensed electricians (REC ${business.recNumber}) serving Melbourne's west since ${business.foundingYear}. EV charger installation, switchboard upgrades, smart home, CCTV and same-day urgent repairs (7am–6pm). ${business.rating.ratingValue} from ${business.rating.reviewCount} Google reviews.`;
 const canonical = "https://www.baraelec.com.au/";
 const ogImage = "https://www.baraelec.com.au/og-image.jpg";
 
@@ -49,16 +49,9 @@ const homeSchema = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "07:00",
-      "closes": "17:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "description": "24/7 Emergency Service Available",
-      "opens": "00:00",
-      "closes": "23:59"
+      "closes": "18:00"
     }
   ],
   "sameAs": business.sameAs,
@@ -81,7 +74,7 @@ const homeSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TV Wall Mounting" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LED Lighting Upgrades" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Safety & Compliance Testing" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24/7 Emergency Electrician" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Urgent Electrical Repairs & Fault Finding" } }
     ]
   }
 };
@@ -112,7 +105,7 @@ const homeSchema = {
   <meta property="og:type" content="website">
   <meta property="og:site_name" content={business.name}>
   <meta property="og:locale" content="en_AU">
-  <meta property="og:title" content="Electrician Melbourne West | EV Chargers, Switchboards & 24/7 Safety">
+  <meta property="og:title" content="Electrician Melbourne West | EV Chargers, Switchboards & Urgent Repairs">
   <meta property="og:description" content={description}>
   <meta property="og:image" content={ogImage}>
   <meta property="og:url" content={canonical}>
@@ -180,7 +173,7 @@ const homeSchema = {
         <div class="hero-text glass-card-translucent">
           <div class="badge glass-badge">Established Since {business.foundingYear} • {business.recNumber}</div>
           <h1>TOP LICENSED ELECTRICIANS IN<br><span class="aura-text">MELBOURNE'S WEST</span> &<br>VICTORIA</h1>
-          <p>Master licensed electricians providing precision, safety, and 24/7 reliability — trusted across Melbourne West for EV chargers, switchboard upgrades, smart home automation, and emergency call-outs.</p>
+          <p>Master licensed electricians providing precision, safety, and certified reliability — trusted across Melbourne West for EV chargers, switchboard upgrades, smart home automation, and same-day urgent repairs.</p>
           <div class="hero-actions mt-4" style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a href="#services" class="magic-shimmer-btn btn-lg">
               <div class="shimmer-overlay"></div>
@@ -282,7 +275,7 @@ const homeSchema = {
             <div><div class="bento-icon">👁️</div></div>
             <div class="bento-content">
               <h3>CCTV & Security Installation</h3>
-              <p class="card-tagline" style="color: var(--color-primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">24/7 Unblinking Peace of Mind</p>
+              <p class="card-tagline" style="color: var(--color-primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Continuous HD Peace of Mind</p>
               <p>High-definition 4K IP security cameras, video doorbells, and remote smartphone monitoring with no blind spots.</p>
             </div>
             <div class="bento-arrow">↗</div>
@@ -379,7 +372,7 @@ const homeSchema = {
               <div class="info-item">
                 <span class="icon-glass">📞</span>
                 <div>
-                  <h4>Call Us (24/7)</h4>
+                  <h4>Call Us (Mon–Sat 7am–6pm)</h4>
                   <p><a href={`tel:${business.telephone}`} class="tel-link" data-gtag="call">{business.displayPhone}</a></p>
                 </div>
               </div>
@@ -394,8 +387,8 @@ const homeSchema = {
                 <span class="icon-glass">🕒</span>
                 <div>
                   <h4>Operating Hours</h4>
-                  <p>Mon - Fri: 7:00 AM - 5:00 PM</p>
-                  <p class="text-primary text-sm mt-1">24/7 Emergency Call-outs Available</p>
+                  <p>Mon - Sat: 7:00 AM - 6:00 PM</p>
+                  <p class="text-primary text-sm mt-1">Same-Day Urgent Fault Response (7am–6pm)</p>
                 </div>
               </div>
             </div>
@@ -420,7 +413,7 @@ const homeSchema = {
                     <option value="residential">Residential Electrical</option>
                     <option value="commercial">Commercial Electrical</option>
                     <option value="new-build">New Build / Renovation</option>
-                    <option value="emergency">24/7 Emergency / Other</option>
+                    <option value="emergency">Urgent Repairs / Fault Finding</option>
                   </select>
                 </div>
               </div>
@@ -478,7 +471,7 @@ const homeSchema = {
             <li><a href="/services/rewiring-and-renovations/">Renovation & Rewiring</a></li>
             <li><a href="/services/smart-home-automation/">Smart Home Automation</a></li>
             <li><a href="/services/cctv-and-security-cameras/">CCTV & Security</a></li>
-            <li><a href="/services/emergency-electrician/">24/7 Emergency Service</a></li>
+            <li><a href="/services/emergency-electrician/">Urgent Electrical Repairs</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -512,9 +505,9 @@ const homeSchema = {
   </footer>
 
   <!-- Sticky Mobile Emergency Call Bar -->
-  <a href={`tel:${business.telephone}`} class="sticky-call" aria-label="Call Bara Electrical 24/7">
+  <a href={`tel:${business.telephone}`} class="sticky-call" aria-label="Call Bara Electrical 0403 669 041">
     <span class="sticky-call-icon">⚡📞</span>
-    <span class="sticky-call-text">Call Now — 24/7 Emergency</span>
+    <span class="sticky-call-text">Call Nick — 0403 669 041</span>
   </a>
 
   <script src="/script.js?v=20260907-v5" defer is:inline></script>

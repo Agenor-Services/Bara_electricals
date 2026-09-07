@@ -3,7 +3,7 @@ title: "Burning Smell from Power Point or Switchboard | Emergency Electrician Me
 h1: "Why is There a Burning Smell from My Power Point?"
 metaDescription: "Emergency guide for burning plastic smells from power points or switchboards in Melbourne. Immediate safety steps to prevent electrical house fires."
 answerFirst: "A burning smell from a power point or switchboard indicates dangerous electrical arcing and severe terminal overheating. Loose screw connections, corroded contacts, or overloaded circuits generate temperatures exceeding 300°C, melting plastic faceplates and risking immediate structural timber fires."
-safetyWarning: "IMMEDIATE FIRE RISK: Switch off the circuit breaker for that room immediately at your main switchboard. If you cannot identify the circuit, switch off the MAIN SWITCH. Do NOT touch the power point, do not pull the plug out while power is on, and call our 24/7 emergency electrician immediately on 0403 669 041."
+safetyWarning: "IMMEDIATE FIRE RISK: Switch off the circuit breaker for that room immediately at your main switchboard. If you cannot identify the circuit, switch off the MAIN SWITCH. Do NOT touch the power point, do not pull the plug out while power is on, and call licensed electrician Nick immediately on 0403 669 041 (Mon–Sat 7am–6pm)."
 relatedService: "/services/emergency-electrician/"
 lastReviewed: "7 September 2026"
 author: "Nick"

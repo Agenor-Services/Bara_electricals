@@ -1,7 +1,7 @@
 ---
 title: "Electrician Burnside VIC 3023 | Local Licensed Electrician REC 29064"
 h1: "Licensed Electrician in Burnside, VIC 3023"
-metaDescription: "Local licensed electrician based in Burnside VIC 3023. Fast 20-30 min response for EV chargers, switchboard upgrades, downlights & 24/7 emergency faults. REC 29064."
+metaDescription: "Local licensed electrician based in Burnside VIC 3023. Fast 20-30 min response for EV chargers, switchboard upgrades, downlights & same-day urgent faults (7am–6pm). REC 29064."
 suburb: "Burnside"
 postcode: "3023"
 answerFirst: "Bara Electrical Servicing is based directly in Burnside, delivering the fastest emergency response times (under 30 minutes) and domestic electrical installations across Burnside and Burnside Heights. As licensed electrical contractors (REC 29064), we specialize in EV chargers, switchboards, and renovation wiring."

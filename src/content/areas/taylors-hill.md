@@ -1,7 +1,7 @@
 ---
 title: "Electrician Taylors Hill VIC 3037 | Licensed Domestic Electrician"
 h1: "Licensed Electrician in Taylors Hill, VIC 3037"
-metaDescription: "Experienced licensed electrician in Taylors Hill VIC 3037. Switchboard upgrades, CCTV security cameras, EV chargers & 24/7 emergency repairs. REC 29064."
+metaDescription: "Experienced licensed electrician in Taylors Hill VIC 3037. Switchboard upgrades, CCTV security cameras, EV chargers & urgent same-day repairs (7am–6pm). REC 29064."
 suburb: "Taylors Hill"
 postcode: "3037"
 answerFirst: "Bara Electrical Servicing delivers dependable electrical contracting to homes across Taylors Hill. Master electrician Nick (REC 29064) delivers high-standard switchboard upgrades, CCTV security systems, EV home charging, and prompt emergency fault diagnostics within 20-30 minutes."

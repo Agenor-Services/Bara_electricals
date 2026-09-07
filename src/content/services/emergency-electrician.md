@@ -1,8 +1,8 @@
 ---
-title: "24/7 Emergency Electrician Melbourne West | Immediate Dispatch"
-h1: "24/7 Emergency Electrician in Melbourne's West"
-metaDescription: "Immediate dispatch 24/7 emergency electricians across Burnside, Caroline Springs, Melton, and Melbourne West. Licensed REC 29064 fault finding and urgent repairs."
-answerFirst: "Bara Electrical Servicing provides 24/7 emergency electrical fault finding, hazard isolation, and urgent repairs across Melbourne's West. When you experience power failure, sparking switchboards, burning smells, or continuous safety switch trips, our licensed electricians (REC 29064) dispatch promptly to secure your property and restore power safely."
+title: "Emergency Electrician Melbourne West | Urgent Repairs (7am–6pm)"
+h1: "Urgent Emergency Electrician in Melbourne's West (7am – 6pm)"
+metaDescription: "Same-day urgent emergency electricians (Mon–Sat 7am–6pm) across Burnside, Caroline Springs, Melton, and Melbourne West. Licensed REC 29064 fault finding and urgent repairs."
+answerFirst: "Bara Electrical Servicing provides same-day emergency electrical fault finding (Mon–Sat 7am–6pm), hazard isolation, and urgent repairs across Melbourne's West. When you experience power failure, sparking switchboards, burning smells, or continuous safety switch trips, our licensed electricians (REC 29064) dispatch promptly to secure your property and restore power safely."
 priceRange: "Standard emergency call-out fee applies"
 typicalDuration: "45-90 minutes on-site resolution typical"
 lastReviewed: "7 September 2026"
@@ -14,15 +14,15 @@ relatedServices:
   - "/services/electrical-safety-inspections/"
 faqs:
   - question: "What should I do immediately during an electrical emergency?"
-    answer: "First, prioritize your safety. If you see smoke, active sparking, or smell burning electrical insulation, stay away from the area. If it is safe to access your main switchboard without touching metal conduits or standing in water, switch off the Main Switch. Never touch live exposed wires, and call our 24/7 emergency line immediately on 0403 669 041."
+    answer: "First, prioritize your safety. If you see smoke, active sparking, or smell burning electrical insulation, stay away from the area. If it is safe to access your main switchboard without touching metal conduits or standing in water, switch off the Main Switch. Never touch live exposed wires, and call our emergency line promptly on 0403 669 041 (operating 7am–6pm Mon–Sat)."
   - question: "How quickly can an emergency electrician arrive in Melbourne West?"
     answer: "Because we operate from Burnside and Caroline Springs within the western growth corridor, our typical emergency response window is between 30 and 60 minutes, depending on traffic conditions and urgent job priority."
   - question: "Will I receive a Certificate of Electrical Safety for emergency works?"
     answer: "Yes. Under Victorian law and Energy Safe Victoria regulations, all emergency repair work involving fixed electrical wiring or replacement components requires the issue of an official Certificate of Electrical Safety (CES)."
   - question: "What causes a safety switch to trip repeatedly during storms?"
     answer: "Storm-related trips are commonly caused by water ingress into outdoor power points, garden lighting, weather-exposed junction boxes, or rooftop solar isolators. An RCD detects as little as 30 milliamps of earth leakage current and cuts power in milliseconds to prevent electrocution."
-  - question: "Do you provide emergency electrical services on weekends and public holidays?"
-    answer: "Yes. Electrical hazards do not wait for business hours. We operate 24 hours a day, 7 days a week, 365 days a year across all western suburbs."
+  - question: "Do you provide emergency electrical services on weekends?"
+    answer: "Yes. Nick provides urgent electrical fault finding and repairs Monday through Saturday from 7:00 AM to 6:00 PM across all western suburbs."
 ---
 
 ## What Happens When You Call an Emergency Electrician
@@ -33,11 +33,11 @@ Upon arrival, our primary objective is hazard isolation:
 
 1. **Immediate Danger Isolation:** We test incoming supply lines and isolate the affected circuit or sub-board to ensure there is zero ongoing fire or shock risk.
 2. **Precision Fault Diagnostics:** Using calibrated insulation resistance testers and digital multimeters complying with AS/NZS 3000, we pinpoint the exact source of failure (e.g. damaged cabling, short circuits, water ingress, or overloaded phases).
-3. **Temporary or Permanent Restoration:** If replacement components are on hand (such as modern RCBOs, circuit breakers, or service fuses), we execute permanent repairs immediately. If specialty parts are needed during the night, we safely restore power to all unaffected areas so your refrigeration and essential circuits remain running.
+3. **Temporary or Permanent Restoration:** If replacement components are on hand (such as modern RCBOs, circuit breakers, or service fuses), we execute permanent repairs immediately. If specialty supply house components are required, we safely make the circuit safe and restore power to all unaffected areas so your refrigeration and essential circuits remain running.
 
 ## Critical Electrical Hazards That Require Immediate Call-Out
 
-Never wait until morning if you encounter any of the following dangerous symptoms:
+Take immediate action if you encounter any of the following dangerous symptoms:
 
 ### 1. Burning Plastic or Fishy Odours from Power Points or Switchboards
 A persistent fishy or burning plastic smell is a classic sign of arcing and overheating electrical insulation. In older switchboards or overloaded power points, loose terminals generate extreme heat that can ignite wall framing.
@@ -59,7 +59,7 @@ Emergency electrical response involves dedicated after-hours readiness, immediat
 - **Parts & Materials:** Modern Australian-standard compliant components (Clipsal, Hager, or Schneider RCBOs and switches).
 - **Transparency:** We explain all required remedial work upfront before proceeding with major component replacements.
 
-## Suburbs Covered for 24/7 Rapid Emergency Response
+## Suburbs Covered for Rapid Same-Day Emergency Response (7am–6pm)
 
 Our primary emergency response zone spans the entire western corridor of Melbourne, including:
 

@@ -1,7 +1,7 @@
 ---
-title: "Emergency Electrician Melbourne: 24/7 Rapid Response Safety Guide | Bara Electrical"
+title: "Emergency Electrician Melbourne: Urgent Faults & Safety Guide (7am–6pm) | Bara Electrical"
 h1: "Emergency Electrician Melbourne: What to Do in an Electrical Crisis"
-metaDescription: "Step-by-step 24/7 emergency electrical guide for Melbourne homeowners. Identify fire hazards, safe power isolation procedures, and emergency sparky response."
+metaDescription: "Step-by-step emergency electrical fault and safety guide for Melbourne homeowners. Identify fire hazards, safe power isolation procedures, and emergency sparky response."
 publishedDate: "2026-09-07"
 lastReviewed: "7 September 2026"
 author: "Nick"
@@ -32,7 +32,7 @@ Emergency Action Protocol
 │                                                         │
 │ 3. CALL LICENSED EMERGENCY SPARKYS                      │
 │    Call Bara Electrical immediately: 0403 669 041       │
-│    * 24/7 Rapid Dispatch across Melbourne's West        │
+│    * Prompt Dispatch (7am–6pm Mon–Sat) across Melbourne's West        │
 └─────────────────────────────────────────────────────────┘
 ```
 

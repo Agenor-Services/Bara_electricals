@@ -1,7 +1,7 @@
 ---
 title: "Electrician Melton VIC 3337 | Switchboard Upgrades & Rewiring"
 h1: "Licensed Electrician in Melton, VIC 3337"
-metaDescription: "Experienced licensed electrician servicing Melton VIC 3337. Ceramic fuse upgrades, house rewiring, EV chargers & 24/7 emergency faults. REC 29064."
+metaDescription: "Experienced licensed electrician servicing Melton VIC 3337. Ceramic fuse upgrades, house rewiring, EV chargers & same-day urgent faults (7am–6pm). REC 29064."
 suburb: "Melton"
 postcode: "3337"
 answerFirst: "Bara Electrical Servicing provides comprehensive domestic and emergency electrical contracting throughout Melton and surrounding townships. As Energy Safe Victoria registered contractors (REC 29064), we upgrade older ceramic fuse switchboards, rewire renovations, and install modern EV charging stations."
@@ -26,5 +26,5 @@ The Melton region features a unique blend of heritage and 1970s housing stock al
 ### Core Solutions in Melton:
 - **Full Switchboard Upgrades:** Safe removal of obsolete ceramic fuse blocks and asbestos backboards.
 - **Workshop & Shed Power:** Running underground trenches, sub-boards, and 15A/20A power points for welders and machinery.
-- **Emergency Breakdown Response:** 24/7 rapid dispatch for storm damage and sudden power loss.
+- **Emergency Breakdown Response:** rapid same-day dispatch (7am–6pm) for storm damage and sudden power loss.
 

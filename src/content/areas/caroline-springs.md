@@ -1,10 +1,10 @@
 ---
-title: "Electrician Caroline Springs VIC 3023 | 24/7 Emergency & EV Chargers"
+title: "Electrician Caroline Springs VIC 3023 | Urgent Repairs & Faults & EV Chargers"
 h1: "Licensed Electrician in Caroline Springs, VIC 3023"
-metaDescription: "Expert electrician in Caroline Springs VIC 3023. 24/7 emergency response, switchboard upgrades, EV charger installations & smart home automation. REC 29064."
+metaDescription: "Expert electrician in Caroline Springs VIC 3023. same-day urgent response (7am–6pm), switchboard upgrades, EV charger installations & smart home automation. REC 29064."
 suburb: "Caroline Springs"
 postcode: "3023"
-answerFirst: "Bara Electrical Servicing provides licensed, rapid-response electrical services across all villages of Caroline Springs. Located just minutes away, master electrician Nick (REC 29064) provides Level 2 EV charger installations, switchboard safety upgrades, smart home automation, and 24/7 emergency fault repair."
+answerFirst: "Bara Electrical Servicing provides licensed, rapid-response electrical services across all villages of Caroline Springs. Located just minutes away, master electrician Nick (REC 29064) provides Level 2 EV charger installations, switchboard safety upgrades, smart home automation, and same-day urgent fault repair (7am–6pm Mon–Sat)."
 housingEra: "2000s–2010s modern lakeside residential estates (The Bridges, Oakwood Park, Brookside)"
 lastReviewed: "7 September 2026"
 typicalIssues:

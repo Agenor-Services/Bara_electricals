@@ -29,8 +29,7 @@
     "longitude": 144.7558
   },
   "openingHours": [
-    "Mo-Fr 07:00-17:00",
-    "Sa-Su 00:00-23:59"
+    "Mo-Sa 07:00-18:00"
   ],
   "sameAs": [
     "https://www.facebook.com/baraelectricalservicing",
@@ -38,15 +37,46 @@
     "https://hipages.com.au/connect/baraelectricalservicing"
   ],
   "areasServed": [
-    { "name": "Burnside", "postcode": "3023" },
-    { "name": "Caroline Springs", "postcode": "3023" },
-    { "name": "Taylors Hill", "postcode": "3037" },
-    { "name": "Deer Park", "postcode": "3023" },
-    { "name": "Hillside", "postcode": "3037" },
-    { "name": "Sydenham", "postcode": "3037" },
-    { "name": "Melton", "postcode": "3337" },
-    { "name": "Point Cook", "postcode": "3030" },
-    { "name": "Werribee", "postcode": "3030" },
-    { "name": "Sunshine", "postcode": "3020" }
-  ]
+    {
+      "name": "Burnside",
+      "postcode": "3023"
+    },
+    {
+      "name": "Caroline Springs",
+      "postcode": "3023"
+    },
+    {
+      "name": "Taylors Hill",
+      "postcode": "3037"
+    },
+    {
+      "name": "Deer Park",
+      "postcode": "3023"
+    },
+    {
+      "name": "Hillside",
+      "postcode": "3037"
+    },
+    {
+      "name": "Sydenham",
+      "postcode": "3037"
+    },
+    {
+      "name": "Melton",
+      "postcode": "3337"
+    },
+    {
+      "name": "Point Cook",
+      "postcode": "3030"
+    },
+    {
+      "name": "Werribee",
+      "postcode": "3030"
+    },
+    {
+      "name": "Sunshine",
+      "postcode": "3020"
+    }
+  ],
+  "operatingHours": "Monday \u2013 Saturday: 7:00 AM \u2013 6:00 PM"
 }

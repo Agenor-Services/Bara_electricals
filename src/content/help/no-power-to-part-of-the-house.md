@@ -42,5 +42,5 @@ When only part of your home loses electricity, your electrical installation is a
 - **Only Power Points Out:** Power sub-circuit has tripped due to an overloaded heater or faulty appliance.
 - **Multiple Rooms on One Side Out:** Typical of three-phase properties where Phase 1 or Phase 2 has disconnected.
 
-Our master electricians respond 24/7 across Melbourne West with diagnostic multimeters and insulation testers to find and fix partial outages rapidly.
+Our master electricians respond promptly across Melbourne West (Mon–Sat 7am–6pm) with diagnostic multimeters and insulation testers to find and fix partial outages rapidly.
 
