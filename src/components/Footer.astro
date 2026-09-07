@@ -1,75 +1,79 @@
 ---
 import business from '../data/business.json';
 ---
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <div class="footer-logo">
-          <img src="/logo1.webp" alt="Bara Electrical Servicing" width="50" height="50" />
-          <div>
-            <h3>BARA ELECTRICAL</h3>
-            <p class="tagline">SERVICING MELBOURNE WEST</p>
-          </div>
+<footer class="glass-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo mb-2">
+          <a href="/"><img src="/logo1.webp" alt="Bara Electricals Logo" class="brand-logo footer-logo" width="160" height="160"></a>
         </div>
-        <p class="desc">Fully licensed, insured, and Energy Safe Victoria accredited electrical contractors. Specialising in domestic & commercial electrical excellence.</p>
-        <div class="credentials-badge">
-          <span>Licence: {business.recNumber}</span> · <span>ABN: {business.abn}</span>
-        </div>
-        <p class="direct-contact">
-          Direct: <a href={`tel:${business.telephone}`}>{business.displayPhone}</a><br/>
-          Email: <a href={`mailto:${business.email}`}>{business.email}</a>
+        <p class="text-muted max-w-sm">
+          Powering Melbourne's West with certified reliability. Registered Electrical Contractors (REC {business.recNumber}, ABN {business.abn}) based in {business.address.addressLocality} VIC {business.address.postalCode}.
         </p>
+        
+        <p class="direct-contact mt-2 text-muted" style="font-size: 0.9rem;">
+          Direct: <a href={`tel:${business.telephone}`} class="hover-glow" style="color: var(--color-primary); font-weight: 600;">{business.displayPhone}</a><br/>
+          Email: <a href={`mailto:${business.email}`} class="hover-glow" style="color: #fff;">{business.email}</a>
+        </p>
+
+        <div class="social-icons" style="display: flex; gap: 1.2rem; margin-top: 1.25rem;">
+          <a href={business.sameAs[0]} target="_blank" rel="noopener noreferrer" class="hover-glow" style="color: var(--text-muted); display: flex; align-items: center;" aria-label="Facebook">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+          </a>
+          <a href={business.sameAs[1]} target="_blank" rel="noopener noreferrer" class="hover-glow" style="color: var(--text-muted); display: flex; align-items: center;" aria-label="Instagram">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Core Services</h4>
-        <ul class="footer-links">
-          <li><a href="/services/emergency-electrician/">24/7 Emergency Electrician</a></li>
+      <div class="footer-links">
+        <h4 class="text-white mb-2">Core Services</h4>
+        <ul>
+          <li><a href="/services/emergency-electrician/">24/7 Emergency Service</a></li>
           <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
           <li><a href="/services/switchboard-upgrades/">Switchboard Upgrades</a></li>
           <li><a href="/services/safety-switch-rcd-installation/">Safety Switches & RCDs</a></li>
-          <li><a href="/services/rewiring-and-renovations/">Rewiring & Renovations</a></li>
+          <li><a href="/services/rewiring-and-renovations/">Renovation & Rewiring</a></li>
           <li><a href="/services/smart-home-automation/">Smart Home Automation</a></li>
-          <li><a href="/services/cctv-and-security-cameras/">CCTV & Security Cameras</a></li>
+          <li><a href="/services/cctv-and-security-cameras/">CCTV & Security</a></li>
           <li><a href="/services/led-lighting/">LED Lighting Upgrades</a></li>
           <li><a href="/services/electrical-safety-inspections/">Safety Inspections & Testing</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Western Suburbs Serviced</h4>
-        <ul class="footer-links suburb-grid">
+      <div class="footer-links">
+        <h4 class="text-white mb-2">Western Suburbs</h4>
+        <ul>
           {business.areasServed.map((area) => (
             <li><a href={`/areas/${area.name.toLowerCase().replace(/\s+/g, '-')}/`}>{area.name} ({area.postcode})</a></li>
           ))}
+          <li><a href="/areas/" style="color: var(--color-primary); font-weight: 600;">All 10 Suburbs &rarr;</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Trust & Resources</h4>
-        <ul class="footer-links">
-          <li><a href="/about/">About Us</a></li>
+      <div class="footer-links">
+        <h4 class="text-white mb-2">Trust & Resources</h4>
+        <ul>
+          <li><a href="/about/">About Bara Electrical</a></li>
           <li><a href="/about/nick/">Nick (REC 29064)</a></li>
-          <li><a href="/reviews/">Customer Reviews (5.0 ★)</a></li>
-          <li><a href="/guarantee/">Workmanship Guarantee</a></li>
-          <li><a href="/help/">Troubleshooting & Diagnostic Hub</a></li>
+          <li><a href="/reviews/">Reviews (5.0 ★)</a></li>
+          <li><a href="/guarantee/">Our Guarantee</a></li>
+          <li><a href="/help/">Troubleshooting Hub</a></li>
           <li><a href="/glossary/">Electrical Glossary</a></li>
-          <li><a href="/faq/">Frequently Asked Questions</a></li>
+          <li><a href="/faq/">FAQ Hub</a></li>
           <li><a href="/contact/">Contact & Bookings</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Service</a></li>
         </ul>
-        <div class="rating-box">
-          <div class="stars">★★★★★</div>
-          <p><strong>{business.rating.ratingValue}.0 / 5.0</strong> across {business.rating.reviewCount}+ Google Reviews</p>
-        </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved. Registered Electrical Contractor REC 29064 · Regulated by Energy Safe Victoria.</p>
-      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #94a3b8;">Built and designed by <a href="https://www.agenorit.com.au" target="_blank" rel="noopener" style="color: var(--accent, #f5a623); font-weight: 600; text-decoration: underline;">Agenor Services Pty Ltd</a></p>
+    <div class="footer-bottom text-center text-muted" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; margin-top: 2rem;">
+      <p>&copy; {new Date().getFullYear()} {business.legalName}. All rights reserved. Registered Electrical Contractor REC 29064 · Regulated by Energy Safe Victoria.</p>
+      <p class="mt-2 text-sm" style="color: #94a3b8; font-size: 0.85rem;">
+        Built and designed by <a href="https://www.agenorit.com.au" target="_blank" rel="noopener" style="color: var(--color-primary); font-weight: 600; text-decoration: underline;">Agenor Services Pty Ltd</a>
+      </p>
     </div>
   </div>
 </footer>
