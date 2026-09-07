@@ -1,0 +1,43 @@
+---
+interface Props {
+  text: string;
+  badge?: string;
+}
+
+const { text, badge = "Quick Answer" } = Astro.props;
+---
+<div class="answer-first-card">
+  <div class="answer-badge">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span>{badge}</span>
+  </div>
+  <p class="answer-text">{text}</p>
+</div>
+
+<style>
+  .answer-first-card {
+    background: rgba(245, 166, 35, 0.08);
+    border-left: 4px solid var(--accent, #f5a623);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 1.5rem 0 2rem 0;
+  }
+  .answer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent, #f5a623);
+    margin-bottom: 0.5rem;
+  }
+  .answer-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    margin: 0;
+    font-weight: 500;
+  }
+</style>

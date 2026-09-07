@@ -1,0 +1,77 @@
+---
+import business from '../data/business.json';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "Request a Fast Quotation", 
+  subtitle = "Speak directly with Nick — Fully Licensed REC 29064" 
+} = Astro.props;
+---
+<div class="quote-form-wrapper" id="contact">
+  <div class="form-header">
+    <h3>{title}</h3>
+    <p>{subtitle}</p>
+  </div>
+
+  <form id="quote-form" class="quote-form">
+    <input type="hidden" name="access_key" value="a5824cbf-706f-45b6-9bb8-ffba5e56d7fb" />
+    <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display: none;" />
+
+    <div class="form-group">
+      <label for="name">Your Full Name *</label>
+      <input type="text" id="name" name="name" required placeholder="e.g. David Miller" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Mobile / Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="0400 000 000" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="name@domain.com.au" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="suburb">Your Suburb *</label>
+        <input type="text" id="suburb" name="suburb" required placeholder="e.g. Caroline Springs, Burnside..." />
+      </div>
+      <div class="form-group">
+        <label for="service">Service Required</label>
+        <select id="service" name="service">
+          <option value="Switchboard Upgrade">Switchboard Upgrade & Safety Switch</option>
+          <option value="EV Charger">EV Charger Installation</option>
+          <option value="Emergency Electrical">24/7 Emergency Fault Finding</option>
+          <option value="Renovations & Rewiring">Renovation Wiring / Rewiring</option>
+          <option value="Smart Home">Smart Home Automation</option>
+          <option value="CCTV Security">CCTV & Security</option>
+          <option value="LED Lighting">LED Lighting Upgrades</option>
+          <option value="Safety Compliance">Safety Compliance & Certificate</option>
+          <option value="General Electrical">Other Electrical Work</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Project Details / Fault Description</label>
+      <textarea id="message" name="message" rows="4" placeholder="Briefly describe what you need done..."></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit" id="submit-btn">
+      <span>Send Electrical Enquiry</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </button>
+
+    <div id="form-status" class="form-status"></div>
+
+    <div id="form-fallback" class="form-fallback" style="display: none;">
+      <p>⚠️ Direct connect: Call Nick immediately at <a href={`tel:${business.telephone}`}><strong>{business.displayPhone}</strong></a> or email <a href={`mailto:${business.email}`}><strong>{business.email}</strong></a>.</p>
+    </div>
+  </form>
+</div>

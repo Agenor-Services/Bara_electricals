@@ -1,0 +1,52 @@
+{
+  "name": "Bara Electrical Servicing",
+  "legalName": "Bara Electrical Servicing Pty Ltd",
+  "abn": "55 630 644 585",
+  "recNumber": "REC 29064",
+  "regulator": "Energy Safe Victoria",
+  "url": "https://www.baraelec.com.au",
+  "telephone": "+61403669041",
+  "displayPhone": "0403 669 041",
+  "email": "nick@baraelec.com.au",
+  "founder": "Nick",
+  "foundingYear": 2018,
+  "priceRange": "$$",
+  "rating": {
+    "ratingValue": 5.0,
+    "reviewCount": 79,
+    "bestRating": 5.0,
+    "worstRating": 1.0
+  },
+  "address": {
+    "streetAddress": "Burnside",
+    "addressLocality": "Burnside",
+    "addressRegion": "VIC",
+    "postalCode": "3023",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "latitude": -37.7554,
+    "longitude": 144.7558
+  },
+  "openingHours": [
+    "Mo-Fr 07:00-17:00",
+    "Sa-Su 00:00-23:59"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/baraelectricalservicing",
+    "https://www.instagram.com/baraelectrical",
+    "https://hipages.com.au/connect/baraelectricalservicing"
+  ],
+  "areasServed": [
+    { "name": "Burnside", "postcode": "3023" },
+    { "name": "Caroline Springs", "postcode": "3023" },
+    { "name": "Taylors Hill", "postcode": "3037" },
+    { "name": "Deer Park", "postcode": "3023" },
+    { "name": "Hillside", "postcode": "3037" },
+    { "name": "Sydenham", "postcode": "3037" },
+    { "name": "Melton", "postcode": "3337" },
+    { "name": "Point Cook", "postcode": "3030" },
+    { "name": "Werribee", "postcode": "3030" },
+    { "name": "Sunshine", "postcode": "3020" }
+  ]
+}

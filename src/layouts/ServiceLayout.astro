@@ -1,0 +1,248 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AnswerFirst from '../components/AnswerFirst.astro';
+import AuthorCredit from '../components/AuthorCredit.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import business from '../data/business.json';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  h1: string;
+  metaDescription: string;
+  answerFirst: string;
+  priceRange?: string;
+  typicalDuration?: string;
+  faqs?: FAQItem[];
+  relatedServices?: string[];
+  lastReviewed?: string;
+}
+
+const {
+  title,
+  h1,
+  metaDescription,
+  answerFirst,
+  priceRange = "Competitive quoted rates",
+  typicalDuration = "1 to 4 hours typical",
+  faqs = [],
+  relatedServices = [],
+  lastReviewed = "7 September 2026"
+} = Astro.props;
+
+const canonicalUrl = Astro.url.href;
+
+// Composite schema: Service + BreadcrumbList + Provider link
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${canonicalUrl}#service`,
+      "name": h1,
+      "description": metaDescription,
+      "serviceType": "Electrical Contracting",
+      "provider": {
+        "@type": "Electrician",
+        "@id": "https://www.baraelec.com.au/#electrician",
+        "name": business.name,
+        "telephone": business.telephone,
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "identifier": business.recNumber
+        }
+      },
+      "areaServed": business.areasServed.map(area => ({
+        "@type": "AdministrativeArea",
+        "name": `${area.name} VIC`
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.baraelec.com.au/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.baraelec.com.au/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": h1,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout title={title} description={metaDescription} canonical={canonicalUrl} schema={serviceSchema}>
+  <article class="landing-page service-landing">
+    <div class="landing-container">
+      
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span class="sep">›</span></li>
+          <li><a href="/#services">Services</a></li>
+          <li><span class="sep">›</span></li>
+          <li aria-current="page">{h1}</li>
+        </ol>
+      </nav>
+
+      <!-- Main Heading -->
+      <header class="landing-header">
+        <h1>{h1}</h1>
+        <p class="license-subtitle">Energy Safe Victoria Licensed Electrical Contractors · {business.recNumber}</p>
+      </header>
+
+      <!-- Answer-First GEO Block -->
+      <AnswerFirst text={answerFirst} badge="Service Summary" />
+
+      <!-- Key Facts Strip -->
+      <div class="key-facts-strip">
+        <div class="fact-card">
+          <span class="fact-label">ESTIMATED DURATION</span>
+          <span class="fact-value">{typicalDuration}</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-label">SAFETY CERTIFICATE</span>
+          <span class="fact-value">Prescribed / Non-Prescribed CES</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-label">ACCREDITATION</span>
+          <span class="fact-value">{business.recNumber} (VIC)</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-label">CUSTOMER RATING</span>
+          <span class="fact-value">{business.rating.ratingValue} ★ ({business.rating.reviewCount} Reviews)</span>
+        </div>
+      </div>
+
+      <!-- Main Content Slot -->
+      <div class="landing-content">
+        <slot />
+      </div>
+
+      <!-- Author Verification Strip -->
+      <AuthorCredit lastReviewed={lastReviewed} />
+
+      <!-- FAQs -->
+      {faqs && faqs.length > 0 && (
+        <FaqBlock faqs={faqs} title="Frequently Asked Questions" />
+      )}
+
+      <!-- Conversion Quote Form -->
+      <div class="cta-form-section">
+        <QuoteForm 
+          title={`Book ${h1}`} 
+          subtitle="Direct dispatch across Melbourne's Western Suburbs with Nick" 
+        />
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .landing-page {
+    padding: 3rem 1.5rem 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #e0e0e0;
+  }
+  .breadcrumb-nav ol {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    font-size: 0.88rem;
+    color: #888;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .breadcrumb-nav a {
+    color: #aaa;
+    text-decoration: none;
+  }
+  .breadcrumb-nav a:hover {
+    color: var(--accent, #f5a623);
+  }
+  .breadcrumb-nav [aria-current="page"] {
+    color: var(--accent, #f5a623);
+  }
+  .landing-header h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+  }
+  .license-subtitle {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+  }
+  .key-facts-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem 0;
+  }
+  .fact-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .fact-label {
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .fact-value {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .landing-content :global(h2) {
+    font-size: 1.6rem;
+    color: #fff;
+    margin: 2.5rem 0 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.5rem;
+  }
+  .landing-content :global(p) {
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1.02rem;
+  }
+  .landing-content :global(ul) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .landing-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  .cta-form-section {
+    margin-top: 4rem;
+  }
+</style>

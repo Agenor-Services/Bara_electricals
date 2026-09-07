@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+import { getCollection } from 'astro:content';
+
+const title = `Electrical Help & Fault Diagnostics Guide | ${business.name}`;
+const description = `Practical electrical troubleshooting and fault diagnosis for Melbourne homeowners. Identify causes for tripping safety switches, buzzing switchboards, and flickering lights safely.`;
+const canonical = "https://www.baraelec.com.au/help/";
+
+const helpArticles = await getCollection('help');
+
+const helpHubSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${canonical}#webpage`,
+  "url": canonical,
+  "name": "Electrical Fault Diagnostics & Homeowner Safety Help",
+  "description": description
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={helpHubSchema}>
+  <div style="padding-top: 140px; padding-bottom: 80px; position: relative; z-index: 10;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+      <nav aria-label="Breadcrumb" class="breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+        <a href="/" style="color: var(--color-primary); text-decoration: none;">Home</a>
+        <span style="margin: 0 0.5rem; opacity: 0.5;">/</span>
+        <span style="color: var(--text-main);">Help & Diagnostics</span>
+      </nav>
+
+      <div class="section-header text-center mb-12" style="text-align: center; margin-bottom: 3rem;">
+        <div class="badge glass-badge" style="margin-bottom: 1rem; display: inline-block;">Homeowner Safety & Troubleshooting</div>
+        <h1 class="aura-text" style="font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff;">Electrical Help & Diagnostics</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          Understand common electrical symptoms safely. Grounded in Australian Standard AS/NZS 3000 and Energy Safe Victoria regulations.
+        </p>
+      </div>
+
+      <div class="help-hub-grid">
+        {helpArticles.map((article) => (
+          <a href={`/help/${article.id.replace(/\.md$/, '')}/`} class="help-hub-card">
+            <div class="help-card-header">
+              <span class="warning-badge">Troubleshooting</span>
+              <h3>{article.data.h1}</h3>
+            </div>
+            <p class="help-summary">{article.data.answerFirst}</p>
+            <div class="help-card-footer">
+              <span class="safety-indicator">AS/NZS 3000 Verified</span>
+              <span class="read-guide-link">Diagnose Issue &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Emergency Warning Box -->
+      <div style="margin-top: 4rem; padding: 2.5rem; background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.35); border-radius: 20px; text-align: center;">
+        <h3 style="color: #ff6b6b; font-size: 1.8rem; margin-bottom: 0.8rem;">Smelling Smoke or Seeing Active Sparks?</h3>
+        <p style="color: #f0f0f0; max-width: 600px; margin: 0 auto 1.5rem auto;">Do not touch wiring or appliances. Switch off the main switch if safe to reach, and call our 24/7 licensed emergency electrician immediately.</p>
+        <a href={`tel:${business.telephone}`} class="magic-shimmer-btn btn-lg" style="display: inline-flex; text-decoration: none;" data-gtag="call">
+          <div class="shimmer-overlay"></div>
+          <div class="btn-content">
+            <span class="btn-text">Emergency Call: {business.displayPhone}</span>
+            <span class="btn-icon">⚡</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .help-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+  .help-hub-card {
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .help-hub-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(220, 53, 69, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+  .help-card-header {
+    margin-bottom: 1rem;
+  }
+  .warning-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ff6b6b;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  .help-card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .help-summary {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .help-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    font-size: 0.85rem;
+  }
+  .safety-indicator {
+    color: #94a3b8;
+  }
+  .read-guide-link {
+    color: var(--accent, #f5a623);
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+import { getCollection } from 'astro:content';
+
+const title = `Electrical Services Melbourne West | ${business.name}`;
+const description = `Comprehensive residential, commercial, and emergency electrical services across Melbourne's West. Licensed electricians (REC 29064). 5.0 stars from 79 reviews.`;
+const canonical = "https://www.baraelec.com.au/services/";
+
+const services = await getCollection('services');
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${canonical}#webpage`,
+  "url": canonical,
+  "name": "Electrical Services — Bara Electrical Servicing",
+  "description": description,
+  "provider": {
+    "@type": "Electrician",
+    "@id": "https://www.baraelec.com.au/#electrician"
+  }
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={servicesSchema}>
+  <div style="padding-top: 140px; padding-bottom: 80px; position: relative; z-index: 10;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+      <nav aria-label="Breadcrumb" class="breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+        <a href="/" style="color: var(--color-primary); text-decoration: none;">Home</a>
+        <span style="margin: 0 0.5rem; opacity: 0.5;">/</span>
+        <span style="color: var(--text-main);">Services</span>
+      </nav>
+
+      <div class="section-header text-center mb-12" style="text-align: center; margin-bottom: 3rem;">
+        <div class="badge glass-badge" style="margin-bottom: 1rem; display: inline-block;">Energy Safe Victoria Accredited · {business.recNumber}</div>
+        <h1 class="aura-text" style="font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff;">Our Electrical Services</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          Precision electrical craftsmanship backed by a 5.0-star rating across 79 verified client reviews. Servicing Burnside, Caroline Springs, Melton, and all western suburbs.
+        </p>
+      </div>
+
+      <div class="services-hub-grid">
+        {services.map((svc) => (
+          <a href={`/services/${svc.id.replace(/\.md$/, '')}/`} class="service-hub-card">
+            <div class="svc-card-header">
+              <span class="svc-icon">⚡</span>
+              <h3>{svc.data.h1}</h3>
+            </div>
+            <p class="svc-summary">{svc.data.answerFirst}</p>
+            <div class="svc-card-footer">
+              <span class="svc-duration">{svc.data.typicalDuration || 'Fast turnaround'}</span>
+              <span class="svc-link-text">Learn More &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Emergency Box -->
+      <div style="margin-top: 4rem; padding: 2.5rem; background: rgba(10, 15, 30, 0.85); border: 1px solid rgba(223, 255, 0, 0.3); border-radius: 20px; text-align: center;">
+        <h3 style="color: #ffffff; font-size: 1.8rem; margin-bottom: 0.8rem;">Need Urgent 24/7 Electrical Service?</h3>
+        <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 1.5rem auto;">Direct emergency dispatch for power outages, burning switchboards, and tripping breakers.</p>
+        <a href={`tel:${business.telephone}`} class="magic-shimmer-btn btn-lg" style="display: inline-flex; text-decoration: none;" data-gtag="call">
+          <div class="shimmer-overlay"></div>
+          <div class="btn-content">
+            <span class="btn-text">Call Nick: {business.displayPhone}</span>
+            <span class="btn-icon">⚡</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .services-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+  .service-hub-card {
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .service-hub-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 166, 35, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+  .svc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .svc-icon {
+    font-size: 1.5rem;
+    color: var(--accent, #f5a623);
+  }
+  .svc-card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: 700;
+  }
+  .svc-summary {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .svc-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    font-size: 0.88rem;
+  }
+  .svc-duration {
+    color: #94a3b8;
+  }
+  .svc-link-text {
+    color: var(--accent, #f5a623);
+    font-weight: 600;
+  }
+</style>

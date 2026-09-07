@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const title = `Terms of Service | ${business.name}`;
+const description = `Terms of Service and electrical contracting terms for ${business.legalName} (ABN ${business.abn}, ${business.recNumber}). Energy Safe Victoria compliance.`;
+const canonical = "https://www.baraelec.com.au/terms/";
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="legal-page-container" style="padding: 120px 20px 80px 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 10;">
+    <a href="/" style="display: inline-flex; align-items: center; gap: 6px; color: var(--color-primary); font-weight: 600; margin-bottom: 1.5rem; text-decoration: none;">&larr; Return to Home</a>
+    
+    <article class="glass-card" style="background: rgba(10, 15, 30, 0.8); backdrop-filter: blur(25px); border-radius: 24px; padding: 3rem 2.5rem; border: 1px solid rgba(255,255,255,0.08);">
+      <header style="margin-bottom: 2.5rem;">
+        <div class="badge glass-badge" style="margin-bottom: 1rem;">Service Agreement</div>
+        <h1 class="aura-text" style="font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; color: #fff;">Terms of Service</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Last Updated: September 2026 • {business.legalName} (ABN {business.abn}, {business.recNumber})</p>
+      </header>
+
+      <div class="legal-content">
+        <p>These Terms of Service govern all electrical contracting services provided by {business.legalName} ("we", "us", "our") to clients and property owners ("you", "the Client"). By accepting a quote, booking an electrician, or authorising electrical works, you agree to be bound by these terms.</p>
+
+        <h2>1. Licensing & Regulatory Standards</h2>
+        <p>All electrical works are performed by qualified, licensed electricians under Victorian Registered Electrical Contractor Licence <strong>{business.recNumber}</strong>. All works comply with the <em>Electricity Safety Act 1998</em> (Vic), AS/NZS 3000 (Wiring Rules), and relevant Energy Safe Victoria (ESV) requirements.</p>
+
+        <h2>2. Quotations & Pricing</h2>
+        <ul>
+          <li><strong>Free Estimates:</strong> Quotations provided online or over the phone are indicative estimates based on information supplied by the Client.</li>
+          <li><strong>Fixed Quotes:</strong> Firm quotations are confirmed following an on-site physical inspection of the switchboard, earthing systems, and wiring infrastructure.</li>
+          <li><strong>Variations:</strong> If concealed faults, asbestos, outdated non-compliant wiring, or hazardous existing conditions are discovered during work, we will promptly notify the Client and provide a revised quote before proceeding.</li>
+        </ul>
+
+        <h2>3. Emergency & After-Hours Call-Outs</h2>
+        <p>For urgent 24/7 call-outs, an emergency dispatch fee applies covering prompt travel and initial diagnostic hazard isolation. Any subsequent repair parts or major works will be quoted transparently on-site before execution.</p>
+
+        <h2>4. Certificates of Electrical Safety (COES)</h2>
+        <p>As required by Energy Safe Victoria, a Certificate of Electrical Safety (Prescribed or Non-Prescribed as applicable) will be issued upon completion and full settlement of eligible electrical installation and modification works.</p>
+
+        <h2>5. Workmanship & Product Warranties</h2>
+        <ul>
+          <li><strong>Workmanship Guarantee:</strong> We stand behind the quality of our craftsmanship with a comprehensive workmanship guarantee on all installations.</li>
+          <li><strong>Manufacturer Warranties:</strong> Equipment, EV chargers, switchboard components, and smart home hardware carry warranties provided directly by the respective manufacturers.</li>
+        </ul>
+
+        <h2>6. Payment Terms</h2>
+        <p>Payment terms are clearly stated on each invoice. For residential services, settlement is due upon job completion unless a commercial account arrangement has been pre-agreed in writing.</p>
+
+        <h2>7. Contact Information</h2>
+        <p>
+          <strong>{business.legalName}</strong><br>
+          ABN: {business.abn} • REC: {business.recNumber}<br>
+          {business.address.addressLocality} VIC {business.address.postalCode}, Australia<br>
+          Phone: <a href={`tel:${business.telephone}`} style="color: var(--color-primary);">{business.displayPhone}</a><br>
+          Email: <a href={`mailto:${business.email}`} style="color: var(--color-primary);">{business.email}</a>
+        </p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary, #f5a623);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.4rem;
+  }
+  .legal-content p, .legal-content li {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    padding-left: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .legal-content strong {
+    color: #ffffff;
+  }
+</style>

@@ -1,0 +1,20 @@
+{
+  "name": "bara-electricals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "bugs": {
+    "url": "https://github.com/Agenor-Services/Bara_electricals/issues"
+  },
+  "homepage": "https://github.com/Agenor-Services/Bara_electricals#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.1"
+  }
+}

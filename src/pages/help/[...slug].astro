@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import HelpLayout from '../../layouts/HelpLayout.astro';
+
+export async function getStaticPaths() {
+  const helpEntries = await getCollection('help');
+  return helpEntries.map(entry => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<HelpLayout
+  title={entry.data.title}
+  h1={entry.data.h1}
+  metaDescription={entry.data.metaDescription}
+  answerFirst={entry.data.answerFirst}
+  safetyWarning={entry.data.safetyWarning}
+  causes={entry.data.causes}
+  diyChecks={entry.data.diyChecks}
+  licensedRequirements={entry.data.licensedRequirements}
+  faqs={entry.data.faqs}
+  relatedService={entry.data.relatedService}
+  lastReviewed={entry.data.lastReviewed}
+>
+  <Content />
+</HelpLayout>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  lastReviewed?: string;
+}
+
+const { lastReviewed = "7 September 2026" } = Astro.props;
+---
+<div class="author-credit-strip">
+  <div class="author-avatar">
+    <img src="/nick-electrician.webp" alt="Nick - Licensed Electrician REC 29064" width="48" height="48" />
+  </div>
+  <div class="author-meta">
+    <p class="author-name">
+      Reviewed by <strong>Nick</strong> — Licensed Electrician (REC 29064)
+    </p>
+    <p class="author-date">
+      Technical review & compliance verification · Last updated: {lastReviewed}
+    </p>
+  </div>
+</div>
+
+<style>
+  .author-credit-strip {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+  .author-avatar img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent, #f5a623);
+  }
+  .author-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .author-name {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+  .author-date {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #999;
+  }
+</style>

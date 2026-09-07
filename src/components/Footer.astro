@@ -1,0 +1,68 @@
+---
+import business from '../data/business.json';
+---
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <img src="/logo1.webp" alt="Bara Electrical Servicing" width="50" height="50" />
+          <div>
+            <h3>BARA ELECTRICAL</h3>
+            <p class="tagline">SERVICING MELBOURNE WEST</p>
+          </div>
+        </div>
+        <p class="desc">Fully licensed, insured, and Energy Safe Victoria accredited electrical contractors. Specialising in domestic & commercial electrical excellence.</p>
+        <div class="credentials-badge">
+          <span>Licence: {business.recNumber}</span> · <span>ABN: {business.abn}</span>
+        </div>
+        <p class="direct-contact">
+          Direct: <a href={`tel:${business.telephone}`}>{business.displayPhone}</a><br/>
+          Email: <a href={`mailto:${business.email}`}>{business.email}</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Core Services</h4>
+        <ul class="footer-links">
+          <li><a href="/emergency-electrician-melbourne/">24/7 Emergency Electrician</a></li>
+          <li><a href="/ev-charger-installation-melbourne/">EV Charger Installation</a></li>
+          <li><a href="/switchboard-upgrades-melbourne/">Switchboard Upgrades & RCDs</a></li>
+          <li><a href="/rewiring-renovation-electrician-melbourne/">Renovation & Rewiring</a></li>
+          <li><a href="/smart-home-automation-melbourne/">Smart Home Automation</a></li>
+          <li><a href="/cctv-security-installation-melbourne/">CCTV & Security Systems</a></li>
+          <li><a href="/led-lighting-upgrades-melbourne/">LED Lighting Upgrades</a></li>
+          <li><a href="/electrical-safety-compliance-testing-melbourne/">Safety Inspections & Testing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Western Suburbs Serviced</h4>
+        <ul class="footer-links suburb-grid">
+          {business.areasServed.map((area) => (
+            <li><a href={`/electrician-${area.name.toLowerCase().replace(/\s+/g, '-')}/`}>{area.name} ({area.postcode})</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Trust & Compliance</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/blog/">Electrical Guides & Insights</a></li>
+          <li><a href="/blog/emergency-electrician-west-melbourne/">Emergency Electrician Guide</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap</a></li>
+        </ul>
+        <div class="rating-box">
+          <div class="stars">★★★★★</div>
+          <p><strong>{business.rating.ratingValue}.0 / 5.0</strong> across {business.rating.reviewCount}+ Google Reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved. Registered Electrical Contractor REC 29064 · Regulated by Energy Safe Victoria.</p>
+    </div>
+  </div>
+</footer>

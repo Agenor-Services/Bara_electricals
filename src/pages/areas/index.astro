@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+import { getCollection } from 'astro:content';
+
+const title = `Service Areas in Melbourne's West | ${business.name}`;
+const description = `Electricians servicing Burnside, Caroline Springs, Taylors Hill, Melton, Point Cook, and surrounding western suburbs. Licensed, local, and on call 24/7.`;
+const canonical = "https://www.baraelec.com.au/areas/";
+
+const areaEntries = await getCollection('areas');
+
+const areasHubSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${canonical}#webpage`,
+  "url": canonical,
+  "name": "Electrician Service Areas — Melbourne West",
+  "description": description
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={areasHubSchema}>
+  <div style="padding-top: 140px; padding-bottom: 80px; position: relative; z-index: 10;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+      <nav aria-label="Breadcrumb" class="breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+        <a href="/" style="color: var(--color-primary); text-decoration: none;">Home</a>
+        <span style="margin: 0 0.5rem; opacity: 0.5;">/</span>
+        <span style="color: var(--text-main);">Service Areas</span>
+      </nav>
+
+      <div class="section-header text-center mb-12" style="text-align: center; margin-bottom: 3rem;">
+        <div class="badge glass-badge" style="margin-bottom: 1rem; display: inline-block;">Local Western Suburbs Coverage</div>
+        <h1 class="aura-text" style="font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff;">Electrician Service Areas</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          Fast dispatch from Burnside across Melbourne's western residential estates and commercial precincts. Licensed Energy Safe Victoria electrical contractors.
+        </p>
+      </div>
+
+      <div class="areas-hub-grid">
+        {business.areasServed.map((area) => (
+          <a href={`/electrician-${area.name.toLowerCase().replace(/\s+/g, '-')}/`} class="area-hub-card">
+            <div class="area-card-header">
+              <span class="pin-icon">📍</span>
+              <h3>{area.name}</h3>
+            </div>
+            <p class="area-postcode">VIC {area.postcode}</p>
+            <p class="area-desc">Domestic electrical, EV charging stations, switchboards & emergency service across {area.name}.</p>
+            <div class="area-card-footer">
+              <span>Fast Response</span>
+              <span class="area-view-link">View Local Services &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Emergency Box -->
+      <div style="margin-top: 4rem; padding: 2.5rem; background: rgba(10, 15, 30, 0.85); border: 1px solid rgba(223, 255, 0, 0.3); border-radius: 20px; text-align: center;">
+        <h3 style="color: #ffffff; font-size: 1.8rem; margin-bottom: 0.8rem;">Don't See Your Suburb Listed?</h3>
+        <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 1.5rem auto;">We service Greater Melbourne and western corridor communities. Call to check availability.</p>
+        <a href={`tel:${business.telephone}`} class="magic-shimmer-btn btn-lg" style="display: inline-flex; text-decoration: none;" data-gtag="call">
+          <div class="shimmer-overlay"></div>
+          <div class="btn-content">
+            <span class="btn-text">Call Nick: {business.displayPhone}</span>
+            <span class="btn-icon">⚡</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .areas-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .area-hub-card {
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.8rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .area-hub-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 166, 35, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+  .area-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+  .pin-icon {
+    font-size: 1.2rem;
+  }
+  .area-card-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  .area-postcode {
+    color: var(--accent, #f5a623);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .area-desc {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .area-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+  }
+  .area-view-link {
+    color: var(--accent, #f5a623);
+    font-weight: 600;
+  }
+</style>

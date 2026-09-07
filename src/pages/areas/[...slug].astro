@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import AreaLayout from '../../layouts/AreaLayout.astro';
+
+export async function getStaticPaths() {
+  const areaEntries = await getCollection('areas');
+  return areaEntries.map(entry => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<AreaLayout
+  title={entry.data.title}
+  h1={entry.data.h1}
+  metaDescription={entry.data.metaDescription}
+  suburb={entry.data.suburb}
+  postcode={entry.data.postcode}
+  answerFirst={entry.data.answerFirst}
+  housingEra={entry.data.housingEra}
+  typicalIssues={entry.data.typicalIssues}
+  faqs={entry.data.faqs}
+  lastReviewed={entry.data.lastReviewed}
+>
+  <Content />
+</AreaLayout>

@@ -1,0 +1,104 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQItem[];
+  title?: string;
+}
+
+const { faqs, title = "Frequently Asked Questions" } = Astro.props;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+{faqs && faqs.length > 0 && (
+  <section class="faq-section">
+    <h2>{title}</h2>
+    <div class="faq-accordion">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary class="faq-question">
+            <span>{faq.question}</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Automatically generated FAQPage Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </section>
+)}
+
+<style>
+  .faq-section {
+    margin: 3rem 0;
+  }
+  .faq-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    transition: all 0.2s ease;
+  }
+  .faq-item[open] {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(245, 166, 35, 0.3);
+  }
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    list-style: none;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-icon {
+    font-size: 1.4rem;
+    color: var(--accent, #f5a623);
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    font-size: 0.98rem;
+  }
+  .faq-answer p {
+    margin: 0;
+  }
+</style>

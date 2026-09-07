@@ -1,0 +1,149 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyCallBar from '../components/StickyCallBar.astro';
+import business from '../data/business.json';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = "https://www.baraelec.com.au/og-image.jpg",
+  schema
+} = Astro.props;
+
+const defaultBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "@id": "https://www.baraelec.com.au/#electrician",
+  "name": business.name,
+  "legalName": business.legalName,
+  "url": business.url,
+  "logo": "https://www.baraelec.com.au/logo1.webp",
+  "image": "https://www.baraelec.com.au/og-image.jpg",
+  "telephone": business.telephone,
+  "email": business.email,
+  "priceRange": business.priceRange,
+  "taxID": business.abn,
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "license",
+    "name": "Registered Electrical Contractor",
+    "recognizedBy": {
+      "@type": "GovernmentOrganization",
+      "name": business.regulator
+    },
+    "identifier": business.recNumber
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": business.address.addressLocality,
+    "addressRegion": business.address.addressRegion,
+    "postalCode": business.address.postalCode,
+    "addressCountry": business.address.addressCountry
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": business.geo.latitude,
+    "longitude": business.geo.longitude
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59",
+      "description": "24/7 Emergency Fault Response"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": business.rating.ratingValue,
+    "reviewCount": business.rating.reviewCount,
+    "bestRating": business.rating.bestRating,
+    "worstRating": business.rating.worstRating
+  },
+  "sameAs": business.sameAs,
+  "areaServed": business.areasServed.map(area => ({
+    "@type": "AdministrativeArea",
+    "name": `${area.name} VIC ${area.postcode}`
+  }))
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bara Electrical Servicing" />
+  <meta property="og:locale" content="en_AU" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="/logo1.webp" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema || defaultBusinessSchema)} />
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-022M98FM2Z"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-022M98FM2Z');
+  </script>
+</head>
+<body>
+  <Header />
+  
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <Footer />
+  <StickyCallBar />
+
+  <!-- Application Logic -->
+  <script src="/script.js" defer is:inline></script>
+</body>
+</html>
