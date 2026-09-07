@@ -37,7 +37,7 @@ const areasHubSchema = {
 
       <div class="areas-hub-grid">
         {business.areasServed.map((area) => (
-          <a href={`/electrician-${area.name.toLowerCase().replace(/\s+/g, '-')}/`} class="area-hub-card">
+          <a href={`/areas/${area.name.toLowerCase().replace(/\s+/g, '-')}/`} class="area-hub-card">
             <div class="area-card-header">
               <span class="pin-icon">📍</span>
               <h3>{area.name}</h3>

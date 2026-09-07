@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const guaranteeSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Bara Electrical Servicing Workmanship & Safety Guarantee",
+  "description": "Our commitment to 100% compliance, lifetime workmanship guarantee, Energy Safe Victoria certified work, and upfront pricing.",
+  "publisher": {
+    "@id": "https://www.baraelec.com.au/#business"
+  }
+};
+---
+
+<BaseLayout
+  title="Our Workmanship & Safety Guarantee | Bara Electrical Servicing"
+  metaDescription="Our 5-point guarantee: Lifetime workmanship warranty, Victorian Certificate of Electrical Safety (COES), upfront fixed quotes, and spotless clean-up."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Our Guarantee", url: "/guarantee/" }
+  ]}
+  schema={guaranteeSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block text-center" style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <span class="badge" style="background: rgba(245, 166, 35, 0.1); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">Peace of Mind Guarantee</span>
+      <h1 style="margin-top: 1rem;">Our 5-Point Safety & Workmanship Guarantee</h1>
+      <p class="lead" style="color: #bbb; line-height: 1.6; font-size: 1.15rem;">
+        When you invite Bara Electrical into your home or commercial site, you receive total protection and guaranteed standards compliance backed by Registered Electrical Contractor REC 29064.
+      </p>
+    </div>
+
+    <div class="guarantee-grid" style="margin-top: 3.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+      <div class="guarantee-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2.25rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+          <div style="background: var(--accent); color: #000; font-weight: 800; font-size: 1.25rem; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+          <div>
+            <h2 style="color: #fff; margin-top: 0; font-size: 1.35rem;">Lifetime Workmanship Warranty</h2>
+            <p style="color: #ccc; line-height: 1.7; margin-bottom: 0;">
+              We stand behind every wire pulled, every circuit terminated, and every switchboard assembled. If any installation completed by our team requires adjustment due to workmanship, we rectify it promptly at zero cost to you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2.25rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+          <div style="background: var(--accent); color: #000; font-weight: 800; font-size: 1.25rem; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+          <div>
+            <h2 style="color: #fff; margin-top: 0; font-size: 1.35rem;">Victorian Certificate of Electrical Safety (COES) Guarantee</h2>
+            <p style="color: #ccc; line-height: 1.7; margin-bottom: 0;">
+              Every eligible installation is lodged directly with Energy Safe Victoria (ESV), and you will receive your official Certificate of Electrical Safety. This guarantees that your insurance policy remains completely protected and your property conforms strictly to AS/NZS 3000:2018.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2.25rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+          <div style="background: var(--accent); color: #000; font-weight: 800; font-size: 1.25rem; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+          <div>
+            <h2 style="color: #fff; margin-top: 0; font-size: 1.35rem;">Fixed Upfront Pricing (No Bill Shock)</h2>
+            <p style="color: #ccc; line-height: 1.7; margin-bottom: 0;">
+              We never begin work without your explicit agreement on scope and price. We provide itemised, honest quotes with transparent parts and labour breakdown. If unexpected switchboard decay or obsolete wiring is discovered during testing, we stop and consult you before proceeding.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2.25rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+          <div style="background: var(--accent); color: #000; font-weight: 800; font-size: 1.25rem; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+          <div>
+            <h2 style="color: #fff; margin-top: 0; font-size: 1.35rem;">Full $20M Public Liability Insurance Coverage</h2>
+            <p style="color: #ccc; line-height: 1.7; margin-bottom: 0;">
+              Bara Electrical Servicing Pty Ltd maintains comprehensive $20 million public liability insurance. Your residential property, commercial assets, and family are completely shielded from risk throughout our attendance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantee-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2.25rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+          <div style="background: var(--accent); color: #000; font-weight: 800; font-size: 1.25rem; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">5</div>
+          <div>
+            <h2 style="color: #fff; margin-top: 0; font-size: 1.35rem;">Spotless Clean-Up Promise</h2>
+            <p style="color: #ccc; line-height: 1.7; margin-bottom: 0;">
+              We respect your home as if it were our own. We use protective mats, vacuum up plaster dust and wire clippings, and remove all discarded cardboard packaging and old switchboard parts upon completion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box" style="margin-top: 4rem; text-align: center; padding: 2.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+      <h3 style="color: #fff; margin-bottom: 1rem;">Book With Absolute Confidence</h3>
+      <p style="color: #bbb; max-width: 600px; margin: 0 auto 1.5rem;">
+        Speak directly with licensed electrician Nick today for advice or to arrange a comprehensive quote.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+        <a href="/contact/" class="btn btn-secondary" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

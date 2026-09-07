@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorCredit from '../../components/AuthorCredit.astro';
+import business from '../../data/business.json';
+
+export async function getStaticPaths() {
+  const guideEntries = await getCollection('guides');
+  return guideEntries.map(entry => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": entry.data.h1,
+  "description": entry.data.metaDescription,
+  "datePublished": entry.data.publishedDate,
+  "dateModified": entry.data.publishedDate,
+  "author": {
+    "@type": "Person",
+    "name": entry.data.author,
+    "url": "https://www.baraelec.com.au/about/nick/"
+  },
+  "publisher": {
+    "@id": "https://www.baraelec.com.au/#business"
+  }
+};
+---
+
+<BaseLayout
+  title={entry.data.title}
+  metaDescription={entry.data.metaDescription}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Guides", url: "/guides/" },
+    { name: entry.data.h1, url: `/guides/${entry.id.replace(/\.md$/, '')}/` }
+  ]}
+  schema={articleSchema}
+>
+  <div class="container" style="padding-top: 3.5rem; padding-bottom: 5rem;">
+    <article class="guide-article" style="max-width: 820px; margin: 0 auto;">
+      <header class="guide-header" style="margin-bottom: 2.5rem;">
+        <span class="badge" style="background: rgba(245, 166, 35, 0.1); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">Licensed Electrical Guide</span>
+        <h1 style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.25; margin-top: 1rem; color: #fff;">{entry.data.h1}</h1>
+        <p style="color: #999; font-size: 0.9rem; margin-top: 0.5rem;">
+          Published: {entry.data.publishedDate} · Author: Nick (REC 29064)
+        </p>
+      </header>
+
+      <AuthorCredit lastReviewed={entry.data.lastReviewed} />
+
+      <div class="prose content-body" style="color: #ddd; line-height: 1.8; font-size: 1.05rem;">
+        <Content />
+      </div>
+
+      <div class="guide-footer-cta" style="margin-top: 4rem; padding: 2.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; text-align: center;">
+        <h3 style="color: #fff; margin-top: 0;">Need Hands-On Electrical Assistance in Melbourne West?</h3>
+        <p style="color: #ccc; max-width: 600px; margin: 0.5rem auto 1.5rem;">
+          Contact Nick directly for fast, transparent and fully certified electrical solutions.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+          <a href="/contact/" class="btn btn-secondary" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Book a Job Online</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .prose :global(h2) {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.5rem;
+  }
+  .prose :global(h3) {
+    color: var(--accent, #f5a623);
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(ul), .prose :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .prose :global(pre) {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+</style>

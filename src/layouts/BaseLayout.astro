@@ -6,7 +6,9 @@ import business from '../data/business.json';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
+  metaDescription?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
   canonical?: string;
   ogImage?: string;
   schema?: object;
@@ -14,7 +16,7 @@ interface Props {
 
 const {
   title,
-  description,
+  description = Astro.props.metaDescription || "",
   canonical = Astro.url.href,
   ogImage = "https://www.baraelec.com.au/og-image.jpg",
   schema
@@ -93,10 +95,8 @@ const defaultBusinessSchema = {
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
 
-  <!-- Preconnect and Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Self-hosted font preload -->
+  <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />

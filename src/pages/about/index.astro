@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@id": "https://www.baraelec.com.au/#business"
+  },
+  "description": "About Bara Electrical Servicing: Registered Electrical Contractor (REC 29064) based in Burnside, serving residential and commercial clients across Melbourne's Western Suburbs since 2018."
+};
+---
+
+<BaseLayout
+  title="About Us | Bara Electrical Servicing | Licensed Melbourne Electricians"
+  metaDescription="Learn about Bara Electrical Servicing. Registered Electrical Contractor (REC 29064), ABN 55 630 644 585, based in Burnside and serving Melbourne's Western Suburbs since 2018."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about/" }
+  ]}
+  schema={aboutSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block">
+      <span class="badge" style="background: rgba(245, 166, 35, 0.1); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">Since 2018 · REC 29064</span>
+      <h1 style="margin-top: 1rem;">About Bara Electrical Servicing</h1>
+      <p class="lead">
+        Bara Electrical Servicing is an owner-operated electrical contractor based in Burnside, Victoria. Founded in 2018 by licensed electrician Nick, we provide dependable residential, commercial, and 24/7 emergency electrical services throughout Melbourne's Western Suburbs.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-top: 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="story-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 2.25rem;">
+        <h2 style="color: #fff; margin-top: 0; font-size: 1.4rem;">Our Story & Purpose</h2>
+        <p style="color: #ccc; line-height: 1.7;">
+          Bara Electrical was established with a singular focus: bringing honest, punctilious electrical craftsmanship to homeowners and local businesses in Melbourne West. Rather than running a faceless subcontracting operation, every project is personally managed or supervised by licensed master electricians who take pride in neat switchboards, flawless safety switch installations, and transparent upfront quoting.
+        </p>
+        <p style="color: #ccc; line-height: 1.7;">
+          Over the past seven years, our dedication to uncompromising electrical safety has earned us a <strong>perfect 5.0-star rating across 79 verified Google reviews</strong> from local property owners in Burnside, Caroline Springs, Melton, Werribee, and beyond.
+        </p>
+      </div>
+
+      <div class="credentials-box" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 2.25rem;">
+        <h2 style="color: #fff; margin-top: 0; font-size: 1.4rem;">Licensing & Credentials</h2>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem;">
+          <li style="color: #ccc;">
+            <strong style="color: #fff;">Registered Electrical Contractor:</strong><br />
+            {business.recNumber} (Energy Safe Victoria)
+          </li>
+          <li style="color: #ccc;">
+            <strong style="color: #fff;">Australian Business Number:</strong><br />
+            ABN {business.abn}
+          </li>
+          <li style="color: #ccc;">
+            <strong style="color: #fff;">Compliance Standards:</strong><br />
+            AS/NZS 3000:2018 (Wiring Rules), AS/NZS 3008, AS/NZS 3760
+          </li>
+          <li style="color: #ccc;">
+            <strong style="color: #fff;">Insurance Protection:</strong><br />
+            $20,000,000 Public Liability Insurance Coverage
+          </li>
+          <li style="color: #ccc;">
+            <strong style="color: #fff;">Victorian Safety Certificates:</strong><br />
+            Prescribed and non-prescribed COES registered with ESV on every job
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="team-spotlight" style="margin-top: 3.5rem; background: rgba(245, 166, 35, 0.03); border: 1px solid rgba(245, 166, 35, 0.15); border-radius: 16px; padding: 2.5rem; display: flex; gap: 2rem; align-items: center;">
+      <img
+        src="/nick-electrician.webp"
+        alt="Nick - Operations Director & Licensed Electrician"
+        width="120"
+        height="120"
+        style="border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; flex-shrink: 0;"
+      />
+      <div>
+        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #fff;">Meet Nick — Lead Electrician & Founder</h3>
+        <p style="color: #ccc; margin: 0 0 1rem 0; line-height: 1.6;">
+          Nick is our lead 'A' Grade electrician and operations director. With over 10 years of specialised experience in fault-finding, switchboard engineering, EV infrastructure, and emergency response, Nick ensures that every job adheres strictly to Australian Standards.
+        </p>
+        <a href="/about/nick/" style="color: var(--accent); font-weight: 600; text-decoration: underline;">View Nick's Full Technical Profile & Verification &rarr;</a>
+      </div>
+    </div>
+
+    <div class="values-grid" style="margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      <div class="card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 1.75rem;">
+        <h4 style="color: var(--accent); margin-top: 0; font-size: 1.15rem;">Strict Regulatory Safety</h4>
+        <p style="color: #bbb; margin: 0; line-height: 1.6; font-size: 0.95rem;">
+          We never cut corners or bypass safety mechanisms. All sub-circuits are tested with calibrated multimeters and insulation resistance testers before handover.
+        </p>
+      </div>
+
+      <div class="card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 1.75rem;">
+        <h4 style="color: var(--accent); margin-top: 0; font-size: 1.15rem;">Fixed, Upfront Quotes</h4>
+        <p style="color: #bbb; margin: 0; line-height: 1.6; font-size: 0.95rem;">
+          No hidden call-out fees or unexpected surcharges. We inspect your electrical needs, explain your options in plain English, and provide transparent fixed pricing before starting.
+        </p>
+      </div>
+
+      <div class="card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 1.75rem;">
+        <h4 style="color: var(--accent); margin-top: 0; font-size: 1.15rem;">Fast West-Melbourne Response</h4>
+        <p style="color: #bbb; margin: 0; line-height: 1.6; font-size: 0.95rem;">
+          Operating locally from Burnside, our vans carry fully-stocked replacement parts, RCBOs, testing meters, and surge protectors for rapid dispatch across Melbourne's West.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta-banner" style="margin-top: 4rem; text-align: center; padding: 3rem 2rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+      <h2 style="color: #fff; margin-top: 0;">Ready to Work With a Licensed Local Electrician?</h2>
+      <p style="color: #ccc; max-width: 600px; margin: 0.5rem auto 1.75rem;">
+        Contact our team today for a complimentary quote on your home or commercial electrical project.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+        <a href="/contact/" class="btn btn-secondary" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Book Online</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+  @media (max-width: 768px) {
+    .grid-2 {
+      grid-template-columns: 1fr !important;
+    }
+    .team-spotlight {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

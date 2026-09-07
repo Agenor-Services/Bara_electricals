@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const terms = [
+  {
+    name: "Switchboard",
+    slug: "switchboard",
+    definition: "The central distribution panel of a building that divides the incoming electrical power feed into subsidiary circuits while providing protective fuses, circuit breakers, and safety switches for each circuit. In Australia, modern switchboards must house RCBOs compliant with AS/NZS 3000 to prevent fires and electrocution."
+  },
+  {
+    name: "Safety Switch (RCD)",
+    slug: "safety-switch-rcd",
+    definition: "A Residual Current Device (RCD) engineered to protect human life by constantly monitoring the electrical current flow through live and neutral conductors. If an imbalance as tiny as 30 milliamps occurs—indicating leakage to earth, potentially through a person—it cuts power within 30 milliseconds (0.03 seconds)."
+  },
+  {
+    name: "RCBO",
+    slug: "rcbo",
+    definition: "A Residual Current Breaker with Overcurrent protection. An RCBO combines the human-protection capabilities of an RCD safety switch with the overload and short-circuit protection of a circuit breaker in a single compact module. Under AS/NZS 3000:2018, RCBOs are the mandatory standard for individual sub-circuits."
+  },
+  {
+    name: "Circuit Breaker",
+    slug: "circuit-breaker",
+    definition: "An automatically operated mechanical switch designed to protect electrical cables and appliances from damage caused by overcurrent, overload, or short circuits. Unlike a safety switch, a standard circuit breaker protects property and infrastructure from overheating and fire, but does not protect people from electric shock."
+  },
+  {
+    name: "Ceramic Fuse (Rewirable Fuse)",
+    slug: "ceramic-fuse",
+    definition: "An obsolete circuit protection device found in pre-1990s Australian homes comprising a porcelain wedge with exposed copper fuse wire. Ceramic fuses provide no electrocution protection and create serious fire hazards if incorrectly wired with oversized copper wire. Energy Safe Victoria strongly urges modernising them."
+  },
+  {
+    name: "Three-Phase Power",
+    slug: "three-phase-power",
+    definition: "An AC electrical power supply delivering 415 volts across three active conductors and a neutral wire. Three-phase power delivers three times more electrical capacity than single-phase, making it essential for commercial equipment, high-capacity ducted air conditioning, commercial kitchens, and fast 22kW electric vehicle (EV) chargers."
+  },
+  {
+    name: "Single-Phase Power",
+    slug: "single-phase-power",
+    definition: "A standard 230-volt AC electrical power supply delivered via one active wire and one neutral conductor. The majority of residential properties in Melbourne operate on single-phase power, which supports standard domestic appliances, LED lighting, and Level 2 7kW EV charging up to 32 amps."
+  },
+  {
+    name: "Power Point (GPO)",
+    slug: "power-point-gpo",
+    definition: "General Purpose Outlet (GPO). The standard Australian wall socket supplying 230V alternating current at 10A or 15A. In Australia, power points feature an integrated switch and standard three-pin layout (active, neutral, and earth). Modern power points frequently integrate USB-C charging modules and surge protection."
+  },
+  {
+    name: "Earth Stake (Earthing Electrode)",
+    slug: "earth-stake",
+    definition: "A copper-coated steel rod driven into the earth near the main switchboard, establishing the MEN (Multiple Earthed Neutral) system. The earth stake safely directs stray fault current directly into the ground, ensuring metal appliance chassis remain touch-safe and triggering protective devices instantly during electrical faults."
+  },
+  {
+    name: "AS/NZS 3000 (Wiring Rules)",
+    slug: "as-nzs-3000",
+    definition: "The joint Australian/New Zealand Standard governing the electrical installation requirements for buildings, structures, and premises. Commonly known as the 'Wiring Rules', it is legally mandated in Victoria under the Electricity Safety Act 1998 to ensure safety against electric shock, fire, and property damage."
+  },
+  {
+    name: "REC (Registered Electrical Contractor)",
+    slug: "rec",
+    definition: "A contractor registered with Energy Safe Victoria (ESV) authorised to offer and contract electrical installation work in the state of Victoria. A business operating as an REC employs licensed 'A' Grade electricians and carries mandatory public liability insurance and technical compliance guarantees."
+  },
+  {
+    name: "Certificate of Electrical Safety (COES)",
+    slug: "coes",
+    definition: "A legally required statutory compliance document issued by a licensed Victorian electrical contractor through Energy Safe Victoria upon completing any prescribed or non-prescribed electrical installation work. It certifies that the installation adheres to AS/NZS 3000 and is safe for continuous energisation."
+  }
+];
+
+const glossarySchema = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://www.baraelec.com.au/glossary/#terms",
+  "name": "Australian Electrical Terminology Glossary",
+  "description": "Comprehensive glossary of Australian electrical terms, safety switch definitions, standards, and regulatory licensing concepts in Victoria.",
+  "hasDefinedTerm": terms.map(term => ({
+    "@type": "DefinedTerm",
+    "name": term.name,
+    "description": term.definition,
+    "termCode": term.slug,
+    "url": `https://www.baraelec.com.au/glossary/#${term.slug}`
+  }))
+};
+---
+
+<BaseLayout
+  title="Australian Electrical Glossary & Terminology | Bara Electrical Servicing"
+  metaDescription="Official glossary of Australian electrical terms: safety switches, RCDs, RCBOs, switchboards, AS/NZS 3000, ceramic fuses, and Victorian REC compliance explained clearly."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Glossary", url: "/glossary/" }
+  ]}
+  schema={glossarySchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block">
+      <h1>Australian Electrical Terminology Glossary</h1>
+      <p class="lead">
+        Australian electrical standards and regulations use specific technical trade terminology. Here is an authoritative guide to common electrical terms, safety devices, and Victorian licensing requirements defined by licensed electricians.
+      </p>
+    </div>
+
+    <div class="terms-grid" style="margin-top: 3rem;">
+      {terms.map(term => (
+        <article id={term.slug} class="term-card">
+          <h2>{term.name}</h2>
+          <p class="term-def">{term.definition}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="author-box" style="margin-top: 4rem; padding: 2rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+      <p style="margin: 0; color: #ccc;">
+        Definitions compiled and technically verified by <strong>Nick</strong>, Licensed Electrician (<a href="/about/nick/" style="color: var(--accent);">REC 29064</a>) in compliance with <em>AS/NZS 3000:2018 (Wiring Rules)</em> and <em>Energy Safe Victoria (ESV)</em> safety guidelines.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+  .terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .terms-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .term-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.75rem;
+    scroll-margin-top: 100px;
+    transition: border-color 0.2s ease;
+  }
+  .term-card:hover {
+    border-color: rgba(245, 166, 35, 0.4);
+  }
+  .term-card h2 {
+    color: var(--accent, #f5a623);
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .term-def {
+    color: #ddd;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+</style>

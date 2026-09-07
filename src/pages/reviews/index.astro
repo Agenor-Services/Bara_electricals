@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const reviewsList = [
+  {
+    author: "Guri Singh",
+    rating: 5,
+    date: "2024-03-15",
+    text: "I have used Nick many times, what a wonderful bloke and always punctual. He has completed switchboard work, safety switch installations and lighting at our home. The costs are always cheaper than other vendors. Always happy to recommend Bara Electricals.",
+    service: "Switchboard & General Electrical"
+  },
+  {
+    author: "David Miller",
+    rating: 5,
+    date: "2024-02-28",
+    text: "It’s not often that your plans and ideas turn out exactly how you visualised them. Nick and the boys from Bara Electrical Servicing were outstanding. Thorough electrical safety check and flawless execution.",
+    service: "Renovation Wiring & Safety Check"
+  },
+  {
+    author: "Chok Monn",
+    rating: 5,
+    date: "2024-01-14",
+    text: "Referred by a friend, Nick and crew came spot on time. Very professional and crew were friendly. Installed a 32amp industrial outlet for our EV charger. Highly recommend!",
+    service: "EV Charger Installation"
+  },
+  {
+    author: "Luis Vargas",
+    rating: 5,
+    date: "2023-11-20",
+    text: "Nick is the best electrician I've ever had the pleasure to deal with, fantastic customer service, reliable and a great bloke. Arrived promptly when our safety switch tripped and wouldn't reset. Highly highly recommended.",
+    service: "Emergency Fault Finding"
+  },
+  {
+    author: "Hung Nguyen",
+    rating: 5,
+    date: "2023-10-05",
+    text: "Nick, Henry and Dean did an amazing job setting up the wall mount for our TV and concealing all wiring into the cavity. Nick and his team were highly professional, polite, on time and left the lounge room spotless.",
+    service: "TV Wall Mounting & Power Points"
+  },
+  {
+    author: "Aditya Chordia",
+    rating: 5,
+    date: "2023-08-19",
+    text: "Very professional - high quality work with clean and neat installations. We needed a switchboard upgrade and several downlights replaced. Received quote same day, and was on time for the work.",
+    service: "Switchboard Upgrade & LED Lighting"
+  }
+];
+
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.baraelec.com.au/#business",
+  "name": business.name,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": business.rating.ratingValue,
+    "reviewCount": business.rating.reviewCount,
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  "review": reviewsList.map(r => ({
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": r.author
+    },
+    "datePublished": r.date,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": r.rating,
+      "bestRating": 5
+    },
+    "reviewBody": r.text
+  }))
+};
+---
+
+<BaseLayout
+  title="Customer Reviews & Ratings (5.0 ★) | Bara Electrical Servicing"
+  metaDescription="Read verified 5.0-star customer reviews for Bara Electrical Servicing. 79+ Google reviews praising our prompt response, switchboard upgrades, EV charger installations and fair pricing."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Reviews", url: "/reviews/" }
+  ]}
+  schema={reviewsSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block text-center" style="text-align: center; max-width: 750px; margin: 0 auto;">
+      <div class="score-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.3); padding: 0.5rem 1.25rem; border-radius: 999px; margin-bottom: 1.5rem;">
+        <span style="color: var(--accent); font-size: 1.25rem; font-weight: 800;">5.0 ★★★★★</span>
+        <span style="color: #ccc; font-size: 0.9rem;">Verified Google Score</span>
+      </div>
+      <h1 style="margin: 0 0 1rem 0;">What Our Melbourne West Clients Say</h1>
+      <p class="lead" style="color: #bbb; line-height: 1.6; font-size: 1.1rem;">
+        We take immense pride in delivering top-tier electrical safety, spotless workmanship, and straightforward pricing. Over <strong>79 homeowners and businesses</strong> have awarded Bara Electrical Servicing a perfect 5.0-star rating.
+      </p>
+    </div>
+
+    <div class="reviews-grid" style="margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.75rem;">
+      {reviewsList.map(review => (
+        <div class="review-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <span style="color: var(--accent); font-size: 1.15rem; letter-spacing: 2px;">★★★★★</span>
+              <span style="font-size: 0.8rem; color: #777;">Verified Google Review</span>
+            </div>
+            <p style="color: #ddd; line-height: 1.65; font-size: 0.95rem; margin: 0 0 1.25rem 0; font-style: italic;">
+              "{review.text}"
+            </p>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1rem;">
+            <strong style="color: #fff; display: block; font-size: 1rem;">{review.author}</strong>
+            <span style="color: var(--accent); font-size: 0.85rem; display: block; margin-top: 0.15rem;">{review.service}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="external-cta" style="margin-top: 4rem; text-align: center; padding: 2.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+      <h2 style="color: #fff; margin-top: 0;">See All 79+ Reviews on Google</h2>
+      <p style="color: #ccc; max-width: 600px; margin: 0.5rem auto 1.5rem;">
+        Read live feedback from homeowners in Caroline Springs, Burnside, Melton, Point Cook, and Werribee.
+      </p>
+      <a
+        href="https://www.google.com/search?q=bara+electricals+reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-secondary"
+        style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--accent); color: var(--accent); padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 600;"
+      >
+        View on Google Search ↗
+      </a>
+    </div>
+
+    <div class="cta-box" style="margin-top: 3.5rem; text-align: center;">
+      <h3 style="color: #fff; margin-bottom: 1rem;">Experience 5-Star Electrical Service First-Hand</h3>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+        <a href="/contact/" class="btn btn-secondary" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Get a Fixed Quote</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

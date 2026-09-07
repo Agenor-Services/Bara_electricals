@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  {
+    q: "What is the difference between a safety switch and a circuit breaker?",
+    a: "A safety switch (RCD) protects human life from fatal electrocution by shutting off power in 0.03 seconds if leakage to earth is detected. A circuit breaker protects the property's wiring and appliances from overload or short circuits, preventing electrical fires. Modern switchboards use RCBOs which combine both functions in each circuit.",
+    linkText: "Learn more about safety switch tripping",
+    linkUrl: "/help/safety-switch-keeps-tripping/"
+  },
+  {
+    q: "Are ceramic fuses still legal in Victorian homes?",
+    a: "While grandfathered in older homes, ceramic fuses do not comply with modern AS/NZS 3000 safety standards because they lack RCD electrocution protection. Furthermore, under Victorian rental minimum standards enacted in 2023, rental properties must have modern switchboard circuit breakers and safety switches.",
+    linkText: "Read our guide on ceramic fuse switchboards",
+    linkUrl: "/help/old-ceramic-fuse-switchboard/"
+  },
+  {
+    q: "Can I do my own electrical work or replace a power point myself in Victoria?",
+    a: "No. In Victoria, doing your own electrical work is strictly illegal under the Electricity Safety Act 1998. Even simple jobs like replacing a power point, light switch, or ceiling fan must be performed by a licensed electrician holding an 'A' Grade licence and working under a Registered Electrical Contractor (REC).",
+    linkText: "View our licensing credentials",
+    linkUrl: "/about/nick/"
+  },
+  {
+    q: "Do I need three-phase power to install an EV charger at home?",
+    a: "No. A standard single-phase residential supply easily supports a 7kW (32A) Level 2 EV charger, which adds roughly 40-50 km of driving range per hour of charging—ideal for overnight charging. Three-phase power is only required if you want ultra-fast 22kW charging or have multiple EVs charging concurrently.",
+    linkText: "Explore single-phase vs three-phase EV charging",
+    linkUrl: "/help/do-i-need-three-phase-for-an-ev-charger/"
+  },
+  {
+    q: "How long does a switchboard upgrade take, and will our power be off?",
+    a: "A standard residential switchboard upgrade takes approximately 3 to 5 hours. Power must be isolated at the service fuse during this window while old fuses are stripped, new RCBOs installed, and thorough earthing tests conducted. Power is fully re-energised and tested before we depart.",
+    linkText: "See switchboard upgrade details",
+    linkUrl: "/services/switchboard-upgrades/"
+  },
+  {
+    q: "What should I do if a power point smells like fish, burning plastic, or is hot to touch?",
+    a: "Turn off the switch at the wall immediately if safe, unplug all appliances from that outlet, and switch off the corresponding circuit at the switchboard. A fishy or burning plastic smell indicates internal electrical arcing and scorching of terminal plastics, which is a serious active fire hazard requiring immediate emergency inspection.",
+    linkText: "Step-by-step burning power point emergency guide",
+    linkUrl: "/help/burning-smell-from-power-point/"
+  },
+  {
+    q: "What is a Certificate of Electrical Safety (COES) and will I receive one?",
+    a: "A Certificate of Electrical Safety is an official legal compliance document registered with Energy Safe Victoria certifying that electrical installation work meets Australian Standards (AS/NZS 3000). As licensed electricians (REC 29064), Bara Electrical issues a Victorian COES for all prescribed and non-prescribed electrical work.",
+    linkText: "Read our workmanship guarantee",
+    linkUrl: "/guarantee/"
+  },
+  {
+    q: "What areas does Bara Electrical service in Melbourne?",
+    a: "We provide residential, commercial, and emergency electrical services across Melbourne's Western Suburbs, including Burnside, Caroline Springs, Taylors Hill, Deer Park, Hillside, Sydenham, Melton, Point Cook, Werribee, Sunshine, and surrounding localities.",
+    linkText: "View our full service areas list",
+    linkUrl: "/areas/"
+  },
+  {
+    q: "What causes house lights to flicker intermittently?",
+    a: "Flickering lights are most commonly caused by loose terminal connections behind light switches, loose neutral connections in the switchboard, voltage fluctuation caused by heavy appliance cycles (like air conditioners), or incompatible dimmer switches paired with LED downlights.",
+    linkText: "Troubleshoot flickering lights",
+    linkUrl: "/help/lights-flickering/"
+  },
+  {
+    q: "How fast do you respond to emergency electrical calls in Melbourne West?",
+    a: "We offer 24/7 rapid emergency electrical response across Melbourne's West, typically arriving on-site within 30 to 60 minutes for urgent hazards like burning switchboards, sparking power points, storm damage, or complete loss of power.",
+    linkText: "24/7 Emergency electrical service",
+    linkUrl: "/services/emergency-electrician/"
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="Frequently Asked Electrical Questions (FAQ) | Bara Electrical Servicing"
+  metaDescription="Answers to common Australian home electrical questions: safety switches, switchboards, EV charging, flickering lights, DIY rules, and Victorian electrical compliance."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "FAQ", url: "/faq/" }
+  ]}
+  schema={faqSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block">
+      <h1>Frequently Asked Electrical Questions</h1>
+      <p class="lead">
+        Have questions regarding home electrical safety, switchboard upgrades, or Victorian wiring compliance? Here are direct answers from licensed Melbourne electrician Nick (REC 29064).
+      </p>
+    </div>
+
+    <div class="faq-list" style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem;">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <details>
+            <summary>
+              <h2>{faq.q}</h2>
+              <span class="chevron">▼</span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+              {faq.linkUrl && (
+                <p class="faq-link">
+                  <a href={faq.linkUrl}>{faq.linkText} &rarr;</a>
+                </p>
+              )}
+            </div>
+          </details>
+        </div>
+      ))}
+    </div>
+
+    <div class="cta-help" style="margin-top: 4rem; padding: 2.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; text-align: center;">
+      <h2>Didn't Find Your Question?</h2>
+      <p style="color: #bbb; max-width: 600px; margin: 0.5rem auto 1.5rem;">
+        Check our diagnostic troubleshooting guides or call our licensed team directly for friendly, professional advice.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/help/" class="btn" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Explore Help Guides</a>
+        <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .faq-item:hover {
+    border-color: rgba(245, 166, 35, 0.3);
+  }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.75rem;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 600;
+    padding-right: 1rem;
+  }
+  .chevron {
+    color: var(--accent, #f5a623);
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+  }
+  details[open] .chevron {
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    padding: 0 1.75rem 1.75rem 1.75rem;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .faq-answer p {
+    margin: 0 0 1rem 0;
+  }
+  .faq-link {
+    margin: 0;
+  }
+  .faq-link a {
+    color: var(--accent, #f5a623);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+</style>

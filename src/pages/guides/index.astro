@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const allGuides = await getCollection('guides');
+
+const guidesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Electrical Guides & Technical Insights | Bara Electrical Servicing",
+  "description": "Comprehensive electrical safety guides, switchboard regulations, and installation advice written by licensed Melbourne electricians.",
+  "publisher": {
+    "@id": "https://www.baraelec.com.au/#business"
+  }
+};
+---
+
+<BaseLayout
+  title="Electrical Guides & Technical Insights | Bara Electrical Servicing"
+  metaDescription="Technical guides on switchboard upgrades, emergency electrical safety, EV charging, and Victorian wiring rules from licensed electrician Nick (REC 29064)."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Guides", url: "/guides/" }
+  ]}
+  schema={guidesSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="header-block">
+      <span class="badge" style="background: rgba(245, 166, 35, 0.1); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">Trade Knowledge</span>
+      <h1 style="margin-top: 1rem;">Electrical Guides & Advice</h1>
+      <p class="lead">
+        In-depth technical guides, regulatory breakdowns, and safety protocols written by licensed electricians for property owners across Melbourne's Western Suburbs.
+      </p>
+    </div>
+
+    <div class="guides-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
+      {allGuides.map(guide => (
+        <article class="guide-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span style="color: var(--accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Licensed Guide</span>
+            <h2 style="color: #fff; font-size: 1.35rem; margin: 0.75rem 0 1rem 0; line-height: 1.35;">
+              <a href={`/guides/${guide.id.replace(/\.md$/, '')}/`} style="color: #fff; text-decoration: none;">
+                {guide.data.h1}
+              </a>
+            </h2>
+            <p style="color: #bbb; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem;">
+              {guide.data.metaDescription}
+            </p>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #777; font-size: 0.85rem;">By {guide.data.author} ({guide.data.authorRec})</span>
+            <a href={`/guides/${guide.id.replace(/\.md$/, '')}/`} style="color: var(--accent); font-weight: 600; font-size: 0.9rem; text-decoration: underline;">
+              Read Guide &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+</style>

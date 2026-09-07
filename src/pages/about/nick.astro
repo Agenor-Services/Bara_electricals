@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.baraelec.com.au/about/nick/#person",
+  "name": "Nick",
+  "jobTitle": "Licensed Electrician & Operations Director",
+  "worksFor": {
+    "@id": "https://www.baraelec.com.au/#business"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Registered Electrical Contractor (REC 29064)",
+      "recognizedBy": {
+        "@type": "GovernmentOrganization",
+        "name": "Energy Safe Victoria (ESV)"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Australian Wiring Rules (AS/NZS 3000:2018)",
+    "Switchboard Modernisation & RCBO Protection",
+    "Residential Fault Finding & Diagnosis",
+    "EV Charger Infrastructure (Single & Three Phase)",
+    "Safety Switch (RCD) Testing & Installation",
+    "Emergency Electrical Response"
+  ],
+  "description": "Licensed Victorian electrician (REC 29064) leading Bara Electrical Servicing across Melbourne's Western Suburbs since 2018."
+};
+---
+
+<BaseLayout
+  title="Nick — Licensed Electrician (REC 29064) | Bara Electrical Servicing"
+  metaDescription="Meet Nick, licensed Victorian electrician (REC 29064) and lead technical expert at Bara Electrical Servicing. Verified credentials, standards compliance, and Melbourne West electrical expertise."
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about/" },
+    { name: "Nick (REC 29064)", url: "/about/nick/" }
+  ]}
+  schema={personSchema}
+>
+  <div class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+    <div class="author-hero">
+      <div class="avatar-col">
+        <img
+          src="/nick-electrician.webp"
+          alt="Nick - Licensed Electrician REC 29064"
+          width="180"
+          height="180"
+          class="profile-img"
+        />
+        <div class="badge-tag">REC 29064</div>
+      </div>
+      <div class="bio-col">
+        <h1>Nick</h1>
+        <p class="subtitle">Licensed Electrician (REC 29064) & Lead Technical Director</p>
+        <p class="lead">
+          Nick is the technical lead and founder of Bara Electrical Servicing. With over a decade of hands-on trade experience in Melbourne's Western Suburbs, Nick oversees all electrical compliance, technical diagnostics, and high-standard installations across residential, commercial, and emergency callouts.
+        </p>
+      </div>
+    </div>
+
+    <div class="credentials-grid" style="margin-top: 3rem;">
+      <div class="card">
+        <h3>Licensing & Accreditation</h3>
+        <ul>
+          <li><strong>REC Number:</strong> 29064 (Registered Electrical Contractor, Energy Safe Victoria)</li>
+          <li><strong>ABN:</strong> 55 630 644 585</li>
+          <li><strong>Regulatory Authority:</strong> Energy Safe Victoria (ESV)</li>
+          <li><strong>Insurance:</strong> $20M Public Liability Insurance Coverage</li>
+          <li><strong>Certification:</strong> Licensed to issue Victorian Certificates of Electrical Safety (COES)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Standards & Compliance</h3>
+        <ul>
+          <li><strong>AS/NZS 3000:2018:</strong> Australian/New Zealand Wiring Rules</li>
+          <li><strong>AS/NZS 3001:</strong> Relocatable premises & recreational installations</li>
+          <li><strong>AS/NZS 4777:</strong> Grid connection of energy systems via inverters</li>
+          <li><strong>AS/NZS 3760:</strong> In-service safety inspection & testing of electrical equipment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="editorial-policy" style="margin-top: 3rem;">
+      <h2>Editorial & Technical Review Policy</h2>
+      <p>
+        Every technical guide, symptom diagnostic page, and service guide published on Bara Electrical Servicing is authored or reviewed by Nick. Because electrical systems pose lethal shock and fire hazards, all guides strictly reflect current Victorian electrical legislation, AS/NZS 3000 standards, and manufacturer guidelines.
+      </p>
+      <p>
+        Homeowners are never advised to perform unlicensed electrical repairs. Under Victorian law, all fixed electrical wiring work must strictly be performed by an electrician holding an 'A' Grade licence working under a Registered Electrical Contractor (REC).
+      </p>
+    </div>
+
+    <div class="cta-box" style="margin-top: 3.5rem; text-align: center; padding: 2.5rem; background: rgba(245, 166, 35, 0.05); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: 16px;">
+      <h2>Need Direct Advice or an Urgent Assessment?</h2>
+      <p>Speak directly with Nick and our licensed team for your home or business in Melbourne's West.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href={`tel:${business.telephone}`} class="btn btn-primary" style="background: var(--accent); color: #000; font-weight: 700; padding: 0.85rem 1.75rem; border-radius: 8px;">Call {business.displayPhone}</a>
+        <a href="/contact/" class="btn btn-secondary" style="border: 1px solid #fff; color: #fff; padding: 0.85rem 1.75rem; border-radius: 8px;">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .author-hero {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  @media (max-width: 768px) {
+    .author-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .profile-img {
+    border-radius: 50%;
+    border: 3px solid var(--accent, #f5a623);
+    object-fit: cover;
+  }
+  .badge-tag {
+    background: var(--accent, #f5a623);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+  }
+  .subtitle {
+    color: var(--accent, #f5a623);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #ccc;
+  }
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .credentials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .card h3 {
+    margin-top: 0;
+    color: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.75rem;
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .card li {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .editorial-policy {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 2rem;
+    line-height: 1.7;
+    color: #bbb;
+  }
+  .editorial-policy h2 {
+    color: #fff;
+    margin-top: 0;
+  }
+</style>

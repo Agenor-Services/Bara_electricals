@@ -25,14 +25,15 @@ import business from '../data/business.json';
       <div class="footer-col">
         <h4>Core Services</h4>
         <ul class="footer-links">
-          <li><a href="/emergency-electrician-melbourne/">24/7 Emergency Electrician</a></li>
-          <li><a href="/ev-charger-installation-melbourne/">EV Charger Installation</a></li>
-          <li><a href="/switchboard-upgrades-melbourne/">Switchboard Upgrades & RCDs</a></li>
-          <li><a href="/rewiring-renovation-electrician-melbourne/">Renovation & Rewiring</a></li>
-          <li><a href="/smart-home-automation-melbourne/">Smart Home Automation</a></li>
-          <li><a href="/cctv-security-installation-melbourne/">CCTV & Security Systems</a></li>
-          <li><a href="/led-lighting-upgrades-melbourne/">LED Lighting Upgrades</a></li>
-          <li><a href="/electrical-safety-compliance-testing-melbourne/">Safety Inspections & Testing</a></li>
+          <li><a href="/services/emergency-electrician/">24/7 Emergency Electrician</a></li>
+          <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
+          <li><a href="/services/switchboard-upgrades/">Switchboard Upgrades</a></li>
+          <li><a href="/services/safety-switch-rcd-installation/">Safety Switches & RCDs</a></li>
+          <li><a href="/services/rewiring-and-renovations/">Rewiring & Renovations</a></li>
+          <li><a href="/services/smart-home-automation/">Smart Home Automation</a></li>
+          <li><a href="/services/cctv-and-security-cameras/">CCTV & Security Cameras</a></li>
+          <li><a href="/services/led-lighting/">LED Lighting Upgrades</a></li>
+          <li><a href="/services/electrical-safety-inspections/">Safety Inspections & Testing</a></li>
         </ul>
       </div>
 
@@ -40,19 +41,24 @@ import business from '../data/business.json';
         <h4>Western Suburbs Serviced</h4>
         <ul class="footer-links suburb-grid">
           {business.areasServed.map((area) => (
-            <li><a href={`/electrician-${area.name.toLowerCase().replace(/\s+/g, '-')}/`}>{area.name} ({area.postcode})</a></li>
+            <li><a href={`/areas/${area.name.toLowerCase().replace(/\s+/g, '-')}/`}>{area.name} ({area.postcode})</a></li>
           ))}
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Trust & Compliance</h4>
+        <h4>Trust & Resources</h4>
         <ul class="footer-links">
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/about/nick/">Nick (REC 29064)</a></li>
+          <li><a href="/reviews/">Customer Reviews (5.0 ★)</a></li>
+          <li><a href="/guarantee/">Workmanship Guarantee</a></li>
+          <li><a href="/help/">Troubleshooting & Diagnostic Hub</a></li>
+          <li><a href="/glossary/">Electrical Glossary</a></li>
+          <li><a href="/faq/">Frequently Asked Questions</a></li>
+          <li><a href="/contact/">Contact & Bookings</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/blog/">Electrical Guides & Insights</a></li>
-          <li><a href="/blog/emergency-electrician-west-melbourne/">Emergency Electrician Guide</a></li>
-          <li><a href="/sitemap.xml">XML Sitemap</a></li>
         </ul>
         <div class="rating-box">
           <div class="stars">★★★★★</div>
