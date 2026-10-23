@@ -5,3 +5,6 @@ Thumbs.db
 node_modules/
 .astro/
 scratch/
+.env
+.env.*
+*.log
