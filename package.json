@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node --input-type=module -e \"import('./node_modules/astro/dist/cli/index.js').then(({ cli }) => cli(['node', 'astro', 'build']))\"",
     "preview": "astro preview"
   },
   "bugs": {
