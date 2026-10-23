@@ -233,22 +233,49 @@ Resolves 19 advisories across 7 packages (0 remaining vulnerabilities):
 
 ---
 
-## Step 7 & 9: Deployment & Rollback Plan
+## Step 7 & 8: Deployment & Post-Deploy Validation Execution
 
-### Deployment Steps (Execution paused for explicit confirmation)
-1. `git push origin main`
-2. Remote server sync:
-   ```bash
-   ssh -o BatchMode=yes hostinger-vps 'cd /var/www/bara_electricals && git pull origin main && npm ci && npm run build'
-   ```
-3. Test live site and verify zero vulnerabilities on server:
-   ```bash
-   ssh -o BatchMode=yes hostinger-vps 'cd /var/www/bara_electricals && npm audit --omit=dev'
-   ```
+### 1. User Approval & Push
+- User approved deployment with explicit confirmation.
+- **Git Push:** `git push origin main` completed cleanly.
+- **Local HEAD:** `b7caa5e43cfa7b80ff07e47b81c551e44656cc57`
+- **Remote Origin HEAD:** `b7caa5e43cfa7b80ff07e47b81c551e44656cc57`
 
-### Rollback Plan
-- **Server Rollback Commit:** `c607fb577b6bcbfde3ecc84175f0c5c3b65dd626`
-- **Rollback Procedure:**
+### 2. Server Deployment Execution (`hostinger-vps`)
+Command:
+```bash
+ssh -o BatchMode=yes hostinger-vps 'cd /var/www/bara_electricals && git pull origin main && npm ci && npm run build'
+```
+- **Git Sync:** Fast-forwarded to `b7caa5e`
+- **Clean Install:** `added 198 packages, and audited 199 packages in 3s`
+- **Server Audit:** `found 0 vulnerabilities`
+- **Static Build:** `49 page(s) built in 2.31s. Complete!`
+- **Server Deployed Commit:** `b7caa5e43cfa7b80ff07e47b81c551e44656cc57` (Matches local and GitHub remote)
+- **Nginx Status:** `active` (0 error log entries)
+- **Astro Runtime on Server:** `astro@7.4.2`
+
+### 3. Live Production Validation (HTTPS)
+Commands executed against `https://www.baraelec.com.au`:
+- `GET https://www.baraelec.com.au/` -> **HTTP 200**
+- `GET https://www.baraelec.com.au/services/emergency-electrician/` -> **HTTP 200**
+- `GET https://www.baraelec.com.au/non-existent-404-test` -> **HTTP 404**
+- `GET https://www.baraelec.com.au/sitemap-index.xml` -> **HTTP 200**
+- `GET https://www.baraelec.com.au/robots.txt` -> **HTTP 200**
+- `GET http://baraelec.com.au` -> **HTTP 301** -> `https://www.baraelec.com.au/`
+- `GET https://baraelec.com.au` -> **HTTP 301** -> `https://www.baraelec.com.au/`
+- `GET https://www.baraelec.com.au/api/private` -> **HTTP 404** (No API routes exposed)
+- **Security Headers (404 / default):**
+  - `x-frame-options: SAMEORIGIN`
+  - `x-content-type-options: nosniff`
+  - `x-xss-protection: 1; mode=block`
+  - `referrer-policy: strict-origin-when-cross-origin`
+
+---
+
+## Step 9: Rollback Plan & Commands
+
+- **Rollback Target Commit:** `c607fb577b6bcbfde3ecc84175f0c5c3b65dd626`
+- **Exact Rollback Command:**
   ```bash
   ssh -o BatchMode=yes hostinger-vps 'cd /var/www/bara_electricals && git checkout c607fb577b6bcbfde3ecc84175f0c5c3b65dd626 && npm ci && npm run build'
   ```
@@ -259,3 +286,4 @@ Resolves 19 advisories across 7 packages (0 remaining vulnerabilities):
 1. **Automated Dependabot:** Configure `.github/dependabot.yml` targeting weekly security updates for npm.
 2. **CI Security Check:** Add GitHub Actions workflow step `npm audit --omit=dev --audit-level=high` to block regressions.
 3. **VPS Patching & Maintenance:** Schedule server update and system reboot to apply pending Noble updates (`linux-image-virtual`).
+
